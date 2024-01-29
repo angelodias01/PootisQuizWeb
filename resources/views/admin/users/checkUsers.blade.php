@@ -23,92 +23,10 @@
             <a href="#" class="flex py-2 px-2 items-center justify-center rounded-lg bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">
                 <span class="text-s text-center text-white ">Home</span>
             </a>
-            <button type="button" class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
-                <span class="flex-1 ml-3 text-center whitespace-nowrap text-s text-white" sidebar-toggle-item>Achievements</span>
-                <svg sidebar-toggle-item class="w-6 h-6 " fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                </svg>
-            </button>
-            <ul id="dropdown-example" class="hidden">
-                <li>
-                    <a href="#" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Products</a>
-                </li>
-                <li>
-                    <a href="#" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Billing</a>
-                </li>
-                <li>
-                    <a href="#" class=" text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Invoice</a>
-                </li>
-            </ul>
-
-            <button type="button" class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400" aria-controls="dropdown-example2" data-collapse-toggle="dropdown-example2">
-                <span class="flex-1 ml-3 text-center whitespace-nowrap text-s text-white" sidebar-toggle-item>Questions</span>
-                <svg sidebar-toggle-item class="w-6 h-6 " fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                </svg>
-            </button>
-            <ul id="dropdown-example2" class="hidden">
-                <li>
-                    <a href="#" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Products</a>
-                </li>
-                <li>
-                    <a href="#" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Billing</a>
-                </li>
-                <li>
-                    <a href="#" class=" text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Invoice</a>
-                </li>
-            </ul>
-            <button type="button" class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400" aria-controls="dropdown-example3" data-collapse-toggle="dropdown-example3">
-                <span class="flex-1 ml-3 text-center whitespace-nowrap text-s text-white" sidebar-toggle-item>Shop</span>
-                <svg sidebar-toggle-item class="w-6 h-6 " fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                </svg>
-            </button>
-            <ul id="dropdown-example3" class="hidden">
-                <li>
-                    <a href="#" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Products</a>
-                </li>
-                <li>
-                    <a href="#" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Billing</a>
-                </li>
-                <li>
-                    <a href="#" class=" text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Invoice</a>
-                </li>
-            </ul>
-            <button type="button" class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400" aria-controls="dropdown-example4" data-collapse-toggle="dropdown-example4">
-                <span class="flex-1 ml-3 text-center whitespace-nowrap text-s text-white" sidebar-toggle-item>Themes</span>
-                <svg sidebar-toggle-item class="w-6 h-6 " fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                </svg>
-            </button>
-            <ul id="dropdown-example4" class="hidden">
-                <li>
-                    <a href="#" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Products</a>
-                </li>
-                <li>
-                    <a href="#" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Billing</a>
-                </li>
-                <li>
-                    <a href="#" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Invoice</a>
-                </li>
-            </ul>
-            <button type="button" class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400" aria-controls="dropdown-example5" data-collapse-toggle="dropdown-example5">
-                <span class="flex-1 ml-3 text-center whitespace-nowrap text-s text-white" sidebar-toggle-item>Users</span>
-                <svg sidebar-toggle-item class="w-6 h-6 " fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                </svg>
-            </button>
-            <ul id="dropdown-example5" class="hidden">
-                <li>
-                    <a href="#" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Products</a>
-                </li>
-                <li>
-                    <a href="#" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Billing</a>
-                </li>
-                <li>
-                    <a href="#" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Invoice</a>
-                </li>
-            </ul>
+            <a href="#" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Products</a>
+            <a href="#" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Products</a>
+            <a href="#" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Products</a>
+            <a href="{{ route('check.all.users') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Users</a>
         </nav>
     </div>
 </aside>
@@ -166,6 +84,8 @@
                 echo '<td class="border border-gray-800 px-4 py-2" data-password="' . htmlspecialchars($user->password) . '"><span class="password-display">************</span></td>';
                 echo '<td class="border border-gray-800 px-4 py-2">' . ($user->is_admin ? 'Yes' : 'No') . '</td>';
                 echo '<td class="border border-gray-800 px-4 py-2">' . $user->created_at . '</td>';
+                echo '<td class="border border-gray-800 px-4 py-2"> <a href="' . route('check.all.users') . '" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a></td>';
+                echo '<td class="border border-gray-800 px-4 py-2"><a href="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Delete</a></td>';
                 echo '</tr>';
             }
             ?>

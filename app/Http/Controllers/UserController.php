@@ -13,4 +13,5 @@ class UserController extends Controller
 
         return view('/admin/users/checkUsers', compact('user'));
     }
+
 }
