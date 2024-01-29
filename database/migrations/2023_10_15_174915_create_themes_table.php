@@ -10,7 +10,7 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void{
-        Schema::create('Theme', function (Blueprint $table) {
+        Schema::create('theme', function (Blueprint $table) {
             $table->id('themeId');
             $table->string('themeName');
             $table->string('themeAbreviation');

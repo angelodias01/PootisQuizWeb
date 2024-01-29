@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('AchievementUser', function (Blueprint $table) {
+        Schema::create('achievementUser', function (Blueprint $table) {
             $table->unsignedBigInteger('userId');
             $table->unsignedBigInteger('achievementId');
-            $table->foreign('userId')->references('userId')->on('user')->onDelete('cascade');
+            $table->foreign('userId')->references('userId')->on('users')->onDelete('cascade');
             $table->foreign('achievementId')->references('achievementId')->on('achievements')->onDelete('cascade');
             $table->date('dateEarned');
             $table->primary(['userId', 'achievementId']);
@@ -27,7 +27,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('AchievementsUser');
+        Schema::dropIfExists('achievementUser');
     }
 };
 ?>

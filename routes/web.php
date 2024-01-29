@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,7 @@ Route::get('/about', function(){
     return view('about');
 });
 
+Route::get('/admin/users/checkUsers', [UserController::class, 'checkAllUsers'])->name('check.all.users');
 
 // resources from the controllers
 Route::resource('questions', QuestionsController::class);
@@ -50,13 +52,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('themes', ThemesController::class);
     Route::resource('shop', ShopController::class);
 });
-
 // routes for clicking the admin dashboard options
-Route::get('/admin/questions', [QuestionsController::class, 'index'])->name('admin.questions.index');
-Route::get('/admin/achievements', [AchievementController::class, 'index'])->name('admin.achievements.index');
-Route::get('/admin/achievement_user', [AchievementUserController::class, 'index'])->name('admin.achievement_user.index');
-Route::get('/admin/scores', [ScoresController::class, 'index'])->name('admin.scores.index');
-Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
-Route::get('/admin/user_currency', [UserCurrencyController::class, 'index'])->name('admin.user_currency.index');
-Route::get('/admin/themes', [ThemesController::class, 'index'])->name('admin.themes.index');
-Route::get('/admin/shop', [ShopController::class, 'index'])->name('admin.shop.index');
+//Route::get('/admin/questions', [QuestionsController::class, 'index'])->name('admin.questions.index');
+//Route::get('/admin/achievements', [AchievementController::class, 'index'])->name('admin.achievements.index');
+//Route::get('/admin/achievement_user', [AchievementUserController::class, 'index'])->name('admin.achievement_user.index');
+//Route::get('/admin/scores', [ScoresController::class, 'index'])->name('admin.scores.index');
+//Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
+//Route::get('/admin/user_currency', [UserCurrencyController::class, 'index'])->name('admin.user_currency.index');
+//Route::get('/admin/themes', [ThemesController::class, 'index'])->name('admin.themes.index');
+//Route::get('/admin/shop', [ShopController::class, 'index'])->name('admin.shop.index');

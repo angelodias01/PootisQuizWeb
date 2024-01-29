@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Achievements', function (Blueprint $table) {
+        Schema::create('achievements', function (Blueprint $table) {
             $table->id('achievementId');
             $table->string('achievementName');
             $table->text('description');

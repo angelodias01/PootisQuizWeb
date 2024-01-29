@@ -10,9 +10,9 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void{
-        Schema::create('UserCurrency', function (Blueprint $table) {
+        Schema::create('userCurrency', function (Blueprint $table) {
             $table->id('currencyId');
-            $table->foreignId('userId')->references('userId')->on('user')->onDelete('cascade');
+            $table->foreignId('userId')->references('userId')->on('users')->onDelete('cascade');
             $table->integer('amount');
             $table->timestamps();
         });
@@ -23,7 +23,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('UserCurrency');
+        Schema::dropIfExists('userCurrency');
     }
 };
 ?>
