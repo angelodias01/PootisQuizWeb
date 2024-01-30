@@ -12,7 +12,7 @@
     <style>
         .card {
             position: relative;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
             transform-origin: center;
             padding: 20px; /* Increase padding for larger cards */
         }
@@ -23,7 +23,7 @@
         }
 
         .card img {
-            transition: transform 0.5s ease-in-out;
+            transition: transform 0.7s ease-in-out;
         }
 
         .card:hover img {
@@ -110,8 +110,8 @@
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
 
-        const rotationX = (y / rect.height - 0.5) * 30; // Adjust the factor for rotation sensitivity
-        const rotationY = (x / rect.width - 0.5) * 30; // Adjust the factor for rotation sensitivity
+        const rotationX = (y / rect.height - 0.5) * 12; // Adjust the factor for rotation sensitivity
+        const rotationY = (x / rect.width - 0.5) * 12; // Adjust the factor for rotation sensitivity
 
         card.style.transform = `perspective(1000px) rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
     }

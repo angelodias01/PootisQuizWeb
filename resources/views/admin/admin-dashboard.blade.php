@@ -23,12 +23,12 @@
         </a>
         <div class="flex-grow flex flex-col justify-between text-gray-500 bg-gray-800">
             <nav class="flex flex-col mx-6 my-6 space-y-4">
-                <a href="#" class="flex py-2 px-2 items-center justify-center rounded-lg bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">
+                <a href="{{ route('admin') }}" class="flex py-2 px-2 items-center justify-center rounded-lg bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">
                     <span class="text-s text-center text-white ">Home</span>
                 </a>
-                <a href="#" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Products</a>
-                <a href="#" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Products</a>
-                <a href="#" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Products</a>
+                <a href="{{ route('check.all.themes') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Themes</a>
+                <a href="{{ route('check.all.questions') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Questions</a>
+                <a href="{{ route('check.all.achievements') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Achievements</a>
                 <a href="{{ route('check.all.users') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Users</a>
             </nav>
         </div>

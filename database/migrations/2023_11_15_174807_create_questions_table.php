@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id('questionsId');
-            $table->foreignId('themeId')->references('themeId')->on('theme')->onDelete('cascade');
+            $table->foreignId('themeId')->references('themeId')->on('themes')->onDelete('cascade');
             $table->string('questionsText');
             $table->string('correctAnswer');
             $table->string('wrongAnswer1');
