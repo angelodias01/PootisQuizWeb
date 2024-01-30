@@ -57,34 +57,28 @@
             <thead>
             <tr>
                 <th class="border border-gray-800 px-4 py-2">ID</th>
-                <th class="border border-gray-800 px-4 py-2">Username</th>
-                <th class="border border-gray-800 px-4 py-2">Email</th>
-                <th class="border border-gray-800 px-4 py-2">Password</th>
-                <th class="border border-gray-800 px-4 py-2">Is Admin</th>
+                <th class="border border-gray-800 px-4 py-2">Achievement Name</th>
+                <th class="border border-gray-800 px-4 py-2">Description</th>
                 <th class="border border-gray-800 px-4 py-2">Created at</th>
             </tr>
             </thead>
             <tbody>
             <?php
-            use App\Models\User;
+            use App\Models\Achievements;
 
-            if (isset($_GET['load_admins'])) {
-                $users = User::where('is_admin', 1)->get();
-            } elseif (isset($_GET['load_nonadmins'])) {
-                $users = User::where('is_admin', 0)->get();
+            if (isset($_GET['load_achievements'])) {
+                $achievements = Achievements::all();
             } else {
-                $users = User::all();
+                $achievements = Achievements::all();
             }
 
-            foreach ($users as $user) {
+            foreach ($achievements as $achievement) {
                 echo '<tr>';
-                echo '<td class="border border-gray-800 px-4 py-2">' . $user->userId . '</td>';
-                echo '<td class="border border-gray-800 px-4 py-2">' . $user->username . '</td>';
-                echo '<td class="border border-gray-800 px-4 py-2">' . $user->email . '</td>';
-                echo '<td class="border border-gray-800 px-4 py-2" data-password="' . htmlspecialchars($user->password) . '"><span class="password-display">************</span></td>';
-                echo '<td class="border border-gray-800 px-4 py-2">' . ($user->is_admin ? 'Yes' : 'No') . '</td>';
-                echo '<td class="border border-gray-800 px-4 py-2">' . $user->created_at . '</td>';
-                echo '<td class="border border-gray-800 px-4 py-2"> <a href="' . route('check.all.users') . '" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a></td>';
+                echo '<td class="border border-gray-800 px-4 py-2">' . $achievement->achievementId . '</td>';
+                echo '<td class="border border-gray-800 px-4 py-2">' . $achievement->achievementName . '</td>';
+                echo '<td class="border border-gray-800 px-4 py-2">' . $achievement->description . '</td>';
+                echo '<td class="border border-gray-800 px-4 py-2">' . $achievement->created_at . '</td>';
+                echo '<td class="border border-gray-800 px-4 py-2"> <a href="' . route('check.all.achievements') . '" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a></td>';
                 echo '<td class="border border-gray-800 px-4 py-2"><a href="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Delete</a></td>';
                 echo '</tr>';
             }

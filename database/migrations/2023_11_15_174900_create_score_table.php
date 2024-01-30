@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('scoreId');
             $table->string('score');
             $table->foreignId('userId')->references('userId')->on('users')->onDelete('cascade');
-            $table->foreignId('themeId')->references('themeId')->on('theme')->onDelete('cascade');
+            $table->foreignId('themeId')->references('themeId')->on('themes')->onDelete('cascade');
             $table->date('date');
             $table->timestamps();
 

@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
 
-    <!-- CSS  Bootstrap -->
+    <!-- CSS Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Scripts from Bootstrap (popper.js needed for some components) -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 </head>
+
 @extends('layouts.admin')
+
 <body class="flex bg-gray-100 min-h-screen">
 <aside class="hidden sm:flex sm:flex-col">
     <a class="flex items-center justify-center bg-gray-800">
@@ -57,34 +59,24 @@
             <thead>
             <tr>
                 <th class="border border-gray-800 px-4 py-2">ID</th>
-                <th class="border border-gray-800 px-4 py-2">Username</th>
-                <th class="border border-gray-800 px-4 py-2">Email</th>
-                <th class="border border-gray-800 px-4 py-2">Password</th>
-                <th class="border border-gray-800 px-4 py-2">Is Admin</th>
+                <th class="border border-gray-800 px-4 py-2">Theme Name</th>
+                <th class="border border-gray-800 px-4 py-2">Theme Abbreviation</th>
                 <th class="border border-gray-800 px-4 py-2">Created at</th>
             </tr>
             </thead>
             <tbody>
             <?php
-            use App\Models\User;
+            use App\Models\Themes;
 
-            if (isset($_GET['load_admins'])) {
-                $users = User::where('is_admin', 1)->get();
-            } elseif (isset($_GET['load_nonadmins'])) {
-                $users = User::where('is_admin', 0)->get();
-            } else {
-                $users = User::all();
-            }
+            $themes = Themes::all();
 
-            foreach ($users as $user) {
+            foreach ($themes as $theme) {
                 echo '<tr>';
-                echo '<td class="border border-gray-800 px-4 py-2">' . $user->userId . '</td>';
-                echo '<td class="border border-gray-800 px-4 py-2">' . $user->username . '</td>';
-                echo '<td class="border border-gray-800 px-4 py-2">' . $user->email . '</td>';
-                echo '<td class="border border-gray-800 px-4 py-2" data-password="' . htmlspecialchars($user->password) . '"><span class="password-display">************</span></td>';
-                echo '<td class="border border-gray-800 px-4 py-2">' . ($user->is_admin ? 'Yes' : 'No') . '</td>';
-                echo '<td class="border border-gray-800 px-4 py-2">' . $user->created_at . '</td>';
-                echo '<td class="border border-gray-800 px-4 py-2"> <a href="' . route('check.all.users') . '" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a></td>';
+                echo '<td class="border border-gray-800 px-4 py-2">' . $theme->themeId . '</td>';
+                echo '<td class="border border-gray-800 px-4 py-2">' . $theme->themeName . '</td>';
+                echo '<td class="border border-gray-800 px-4 py-2">' . $theme->themeAbreviation . '</td>';
+                echo '<td class="border border-gray-800 px-4 py-2">' . $theme->created_at . '</td>';
+                echo '<td class="border border-gray-800 px-4 py-2"> <a href="' . route('check.all.themes') . '" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a></td>';
                 echo '<td class="border border-gray-800 px-4 py-2"><a href="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Delete</a></td>';
                 echo '</tr>';
             }
