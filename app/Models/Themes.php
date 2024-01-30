@@ -11,7 +11,7 @@ class Themes extends Model
 
     protected $fillable = [
         'name',
-        'abbreviation',
+        'themeAbreviation',
     ];
 
     public $timestamps = false;

@@ -69,18 +69,23 @@
             use App\Models\Themes;
 
             $themes = Themes::all();
-
-            foreach ($themes as $theme) {
-                echo '<tr>';
-                echo '<td class="border border-gray-800 px-4 py-2">' . $theme->themeId . '</td>';
-                echo '<td class="border border-gray-800 px-4 py-2">' . $theme->themeName . '</td>';
-                echo '<td class="border border-gray-800 px-4 py-2">' . $theme->themeAbreviation . '</td>';
-                echo '<td class="border border-gray-800 px-4 py-2">' . $theme->created_at . '</td>';
-                echo '<td class="border border-gray-800 px-4 py-2"> <a href="' . route('check.all.themes') . '" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a></td>';
-                echo '<td class="border border-gray-800 px-4 py-2"><a href="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Delete</a></td>';
-                echo '</tr>';
-            }
             ?>
+            @foreach($groupedThemes as $themeName => $themes)
+                @foreach ($themes as $theme)
+                    <tr>
+                        <td class="border border-gray-800 px-4 py-2">{{ $theme->themeId }}</td>
+                        <td class="border border-gray-800 px-4 py-2">{{ $theme->themeName }}</td>
+                        <td class="border border-gray-800 px-4 py-2">{{ $theme->themeAbreviation }}</td>
+                        <td class="border border-gray-800 px-4 py-2">{{ $theme->created_at }}</td>
+                        <td class="border border-gray-800 px-4 py-2">
+                            <a href="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a>
+                        </td>
+                        <td class="border border-gray-800 px-4 py-2">
+                            <a href="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Delete</a>
+                        </td>
+                    </tr>
+                @endforeach
+            @endforeach
             </tbody>
         </table>
     </main>
