@@ -10,9 +10,13 @@ class ThemesController extends Controller
 {
     public function checkAllThemes()
     {
-        $themes = Themes::select('themeId', 'themeName', 'themeAbreviation', 'created_at')->get();
+        // Retrieve all themes ordered by name
+        $themes = Themes::orderBy('themeName')->get();
 
-        return view('/admin/themes/checkThemes', compact('themes'));
+        // Group themes by themeName using Laravel collection's groupBy method
+        $groupedThemes = $themes->groupBy('themeName');
+
+        return view('/admin/themes/checkThemes', compact('groupedThemes'));
     }
 
 
