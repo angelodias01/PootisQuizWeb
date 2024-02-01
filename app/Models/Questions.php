@@ -9,6 +9,8 @@ class Questions extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = "questionsId";
+
     protected $fillable = [
         'theme_id',
         'question_text',

@@ -9,6 +9,8 @@ class Achievements extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = "achievementId";
+
     protected $fillable = ['name',
         'description'];
 

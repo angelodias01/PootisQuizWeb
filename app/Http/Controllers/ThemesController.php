@@ -3,22 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Themes;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class ThemesController extends Controller
 {
     public function checkAllThemes()
     {
-        // Retrieve all themes ordered by name
         $themes = Themes::orderBy('themeName')->get();
 
-        // Group themes by themeName using Laravel collection's groupBy method
         $groupedThemes = $themes->groupBy('themeName');
 
         return view('/admin/themes/checkThemes', compact('groupedThemes'));
     }
 
+    public function deleteTheme(Themes $theme)
+    {
+        $theme->delete();
+        return redirect()->route('check.all.themes')->with('success', 'Theme deleted successfully!');
+    }
 
     // Show a list of themes
     public function index()

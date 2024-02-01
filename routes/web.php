@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\QuestionsController;
 use App\Http\Controllers\AchievementsController;
 use App\Http\Controllers\ScoresController;
@@ -41,10 +41,19 @@ Route::get('/admin', function () {
 })->name('admin');
 
 
+// deletes
+Route::delete('/admin/themes/{theme}', [ThemesController::class, 'deleteTheme'])->name('admin.themes.deleteTheme');
+Route::delete('/admin/questions/{question}', [QuestionsController::class, 'deleteQuestion'])->name('admin.questions.delete');
+Route::delete('/admin/achievements/{achievement}', [AchievementsController::class, 'deleteAchievement'])->name('admin.achievements.delete');
+Route::delete('/admin/users/{user}', [UsersController::class, 'deleteUser'])->name('admin.users.delete');
+
+
+// routes to get to the admin pages
 Route::get('/admin/themes/checkThemes', [ThemesController::class, 'checkAllThemes'])->name('check.all.themes');
 Route::get('/admin/questions/checkQuestions', [QuestionsController::class, 'checkAllQuestions'])->name('check.all.questions');
 Route::get('/admin/achievements/checkAchievements', [AchievementsController::class, 'checkAllAchievements'])->name('check.all.achievements');
-Route::get('/admin/users/checkUsers', [UserController::class, 'checkAllUsers'])->name('check.all.users');
+Route::get('/admin/users/checkUsers', [UsersController::class, 'checkAllUsers'])->name('check.all.users');
+
 
 
 // resources from the controllers
@@ -53,6 +62,6 @@ Route::resource('achievements', AchievementsController::class);
 Route::resource('scores', ScoresController::class);
 Route::resource('shop', ShopController::class);
 Route::resource('themes', ThemesController::class);
-Route::resource('users', UserController::class);
+Route::resource('users', UsersController::class);
 Route::resource('user-currency', UserCurrencyController::class);
 Route::resource('achievement-user', AchievementUserController::class);
