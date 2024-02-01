@@ -12,21 +12,24 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 </head>
+
 @extends('layouts.admin')
+
 <body class="flex bg-gray-100 min-h-screen">
 <aside class="hidden sm:flex sm:flex-col">
     <a class="flex items-center justify-center bg-gray-800">
         <img src="{{ asset('pootisquiz.svg') }}" alt="">
     </a>
     <div class="flex-grow flex flex-col justify-between text-gray-500 bg-gray-800">
-        <nav class="flex flex-col mx-6 my-6 space-y-4">
-            <a href="{{ route('admin') }}" class="flex py-2 px-2 items-center justify-center rounded-lg bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">
-                <span class="text-s text-center text-white ">Home</span>
+        <nav class="flex flex-col mx-6 my-4 space-y-2">
+            <a href="{{ route('admin') }}" class="flex py-2 px-2 items-center justify-center rounded-lg {{ Request::route()->getName() == 'admin' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">
+                <span class="text-s text-center text-white">Home</span>
             </a>
-            <a href="{{ route('check.all.themes') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Themes</a>
-            <a href="{{ route('check.all.questions') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Questions</a>
-            <a href="{{ route('check.all.achievements') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Achievements</a>
-            <a href="{{ route('check.all.users') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400">Users</a>
+            <hr class="border border-gray-700">
+            <a href="{{ route('check.all.themes') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.themes' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">Themes</a>
+            <a href="{{ route('check.all.questions') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.questions' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">Questions</a>
+            <a href="{{ route('check.all.achievements') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.achievements' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">Achievements</a>
+            <a href="{{ route('check.all.users') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.users' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">Users</a>
         </nav>
     </div>
 </aside>
@@ -53,6 +56,7 @@
         </div>
     </header>
     <main class="p-6 sm:p-10 space-y-6">
+        <h2 class="text-2xl font-semibold mb-4">Users</h2>
         <table class="border-collapse border border-gray-800">
             <thead>
             <tr>
@@ -65,35 +69,30 @@
             </tr>
             </thead>
             <tbody>
-            <?php
-            use App\Models\User;
-
-            if (isset($_GET['load_admins'])) {
-                $users = User::where('is_admin', 1)->get();
-            } elseif (isset($_GET['load_nonadmins'])) {
-                $users = User::where('is_admin', 0)->get();
-            } else {
-                $users = User::all();
-            }
-
-            foreach ($users as $user) {
-                echo '<tr>';
-                echo '<td class="border border-gray-800 px-4 py-2">' . $user->userId . '</td>';
-                echo '<td class="border border-gray-800 px-4 py-2">' . $user->username . '</td>';
-                echo '<td class="border border-gray-800 px-4 py-2">' . $user->email . '</td>';
-                echo '<td class="border border-gray-800 px-4 py-2" data-password="' . htmlspecialchars($user->password) . '"><span class="password-display">************</span></td>';
-                echo '<td class="border border-gray-800 px-4 py-2">' . ($user->is_admin ? 'Yes' : 'No') . '</td>';
-                echo '<td class="border border-gray-800 px-4 py-2">' . $user->created_at . '</td>';
-                echo '<td class="border border-gray-800 px-4 py-2"> <a href="' . route('check.all.users') . '" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a></td>';
-                echo '<td class="border border-gray-800 px-4 py-2"><a href="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Delete</a></td>';
-                echo '</tr>';
-            }
-            ?>
+            @foreach ($users as $user)
+                <tr>
+                    <td class="border border-gray-800 px-4 py-2">{{ $user->userId }}</td>
+                    <td class="border border-gray-800 px-4 py-2">{{ $user->username }}</td>
+                    <td class="border border-gray-800 px-4 py-2">{{ $user->email }}</td>
+                    <td class="border border-gray-800 px-4 py-2" data-password="{{ $user->password }}"><span class="password-display">************</span></td>
+                    <td class="border border-gray-800 px-4 py-2">{{ $user->is_admin ? 'Yes' : 'No' }}</td>
+                    <td class="border border-gray-800 px-4 py-2">{{ $user->created_at }}</td>
+                    <td class="border border-gray-800 px-4 py-2">
+                        <a href="{{ route('check.all.users') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a>
+                    </td>
+                    <td class="border border-gray-800 px-4 py-2">
+                        <form id="deleteForm{{ $user->userId }}" action="{{ route('admin.users.delete', ['user' => $user->userId]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </main>
 </div>
-
 <script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>
 </body>
 </html>

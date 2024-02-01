@@ -36,6 +36,13 @@ class QuestionsController extends Controller
         return view('/admin/questions/checkQuestions', compact('groupedQuestions'));
     }
 
+    public function deleteQuestion(Questions $question)
+    {
+        $question->delete();
+        return redirect()->route('check.all.questions')->with('success', 'Question deleted successfully!');
+    }
+
+
     // Show a list of questions
     public function index()
     {

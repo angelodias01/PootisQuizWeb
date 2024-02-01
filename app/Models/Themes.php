@@ -9,6 +9,8 @@ class Themes extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = "themeId";
+
     protected $fillable = [
         'name',
         'themeAbreviation',

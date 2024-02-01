@@ -15,6 +15,11 @@ class AchievementsController extends Controller
         return view('/admin/achievements/checkAchievements', compact('achievements'));
     }
 
+    public function deleteAchievement(Achievements $achievement)
+    {
+        $achievement->delete();
+        return redirect()->route('check.all.achievements')->with('success', 'Achievement deleted successfully!');
+    }
 
     // Shows an achievements list
     public function index()
