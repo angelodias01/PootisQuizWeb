@@ -40,13 +40,9 @@ Route::get('/admin', function () {
     return view('admin.admin-dashboard');
 })->name('admin');
 
-
 // deletes
-Route::delete('/admin/themes/{theme}', [ThemesController::class, 'deleteTheme'])->name('admin.themes.deleteTheme');
 Route::delete('/admin/questions/{question}', [QuestionsController::class, 'deleteQuestion'])->name('admin.questions.delete');
-Route::delete('/admin/achievements/{achievement}', [AchievementsController::class, 'deleteAchievement'])->name('admin.achievements.delete');
 Route::delete('/admin/users/{user}', [UsersController::class, 'deleteUser'])->name('admin.users.delete');
-
 
 // routes to get to the admin pages
 Route::get('/admin/themes/checkThemes', [ThemesController::class, 'checkAllThemes'])->name('check.all.themes');
@@ -54,6 +50,35 @@ Route::get('/admin/questions/checkQuestions', [QuestionsController::class, 'chec
 Route::get('/admin/achievements/checkAchievements', [AchievementsController::class, 'checkAllAchievements'])->name('check.all.achievements');
 Route::get('/admin/users/checkUsers', [UsersController::class, 'checkAllUsers'])->name('check.all.users');
 
+// achievements
+Route::prefix('admin')->group(function () {
+    Route::get('/achievements', [AchievementsController::class, 'index'])->name('admin.achievements.index');
+    Route::get('/achievements/create', [AchievementsController::class, 'createAchievement'])->name('admin.achievements.create');
+    Route::post('/achievements/store', [AchievementsController::class, 'store'])->name('admin.achievements.store');
+    Route::get('/achievements/{achievement}/edit', [AchievementsController::class, 'edit'])->name('admin.achievements.edit');
+    Route::put('/achievements/{achievement}', [AchievementsController::class, 'update'])->name('admin.achievements.update');
+    Route::delete('/achievements/{achievement}', [AchievementsController::class, 'deleteAchievement'])->name('admin.achievements.delete');
+});
+
+// themes
+Route::prefix('admin')->group(function () {
+    Route::get('/themes', [ThemesController::class, 'index'])->name('admin.themes.index');
+    Route::get('/themes/create', [ThemesController::class, 'createTheme'])->name('admin.themes.create');
+    Route::post('/themes/store', [ThemesController::class, 'store'])->name('admin.themes.store');
+    Route::get('/themes/{theme}/edit', [ThemesController::class, 'edit'])->name('admin.themes.edit');
+    Route::put('/themes/{theme}', [ThemesController::class, 'update'])->name('admin.themes.update');
+    Route::delete('/themes/{theme}', [ThemesController::class, 'deleteTheme'])->name('admin.themes.deleteTheme');
+});
+
+// questions
+Route::prefix('admin')->group(function () {
+    Route::get('/questions', [QuestionsController::class, 'index'])->name('admin.questions.index');
+    Route::get('/questions/create', [QuestionsController::class, 'createQuestion'])->name('admin.questions.create');
+    Route::post('/questions/store', [QuestionsController::class, 'store'])->name('admin.questions.store');
+    Route::get('/questions/{question}/edit', [QuestionsController::class, 'edit'])->name('admin.questions.edit');
+    Route::put('/questions/{question}', [QuestionsController::class, 'update'])->name('admin.questions.update');
+    Route::delete('/questions/{question}', [QuestionsController::class, 'deleteQuestion'])->name('admin.questions.deleteQuestion');
+});
 
 
 // resources from the controllers

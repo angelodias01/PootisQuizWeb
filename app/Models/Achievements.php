@@ -11,9 +11,14 @@ class Achievements extends Model
 
     protected $primaryKey = "achievementId";
 
-    protected $fillable = ['name',
-        'description'];
+    protected $fillable = ['achievementId', 'achievementName', 'description'];
 
-    public $timestamps = false;
+    public $timestamps = true;
+
+    public static function getUsedIds()
+    {
+        return static::pluck('achievementId')->toArray();
+    }
 }
+
 ?>

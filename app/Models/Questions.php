@@ -12,15 +12,22 @@ class Questions extends Model
     protected $primaryKey = "questionsId";
 
     protected $fillable = [
+        'question_id',
         'theme_id',
         'question_text',
         'correct_answer',
-        'wrong_answer1',
-        'wrong_answer2',
-        'wrong_answer3',
+        'wrong_answer_1',
+        'wrong_answer_2',
+        'wrong_answer_3',
+        'selected_answer'
     ];
 
-    public $timestamps = false;
+    public $timestamps = true;
+
+    public static function getUsedIds()
+    {
+        return static::pluck('questionsId')->toArray();
+    }
 
     public function theme()
     {

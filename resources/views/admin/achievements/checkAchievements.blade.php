@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 </head>
+
 @extends('layouts.admin')
 <body class="flex bg-gray-100 min-h-screen">
 <aside class="hidden sm:flex sm:flex-col">
@@ -54,7 +55,12 @@
         </div>
     </header>
     <main class="p-6 sm:p-10 space-y-6">
-        <h2 class="text-2xl font-semibold mb-4">Achievements</h2>
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-2xl font-semibold">Achievements</h2>
+            <a href="{{ route('admin.achievements.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full block text-center">
+                Create
+            </a>
+        </div>
         <table class="border-collapse border border-gray-800">
             <thead>
             <tr>
@@ -62,6 +68,7 @@
                 <th class="border border-gray-800 px-4 py-2">Achievement Name</th>
                 <th class="border border-gray-800 px-4 py-2">Description</th>
                 <th class="border border-gray-800 px-4 py-2">Created at</th>
+                <th class="border border-gray-800 px-4 py-2">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -96,6 +103,7 @@
             </tbody>
         </table>
     </main>
+
 </div>
 
 <script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>
