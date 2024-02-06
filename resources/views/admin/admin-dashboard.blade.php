@@ -78,14 +78,18 @@
                     </div>
                 </div>
                 <div class="flex items-center p-8 bg-white border border-black border-4 rounded-lg shadow">
-                    <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
-                        <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                        </svg>
+                    <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: rgba(22, 163, 74, 1);"><path d="M13.4 2.096a10.08 10.08 0 0 0-8.937 3.331A10.054 10.054 0 0 0 2.096 13.4c.53 3.894 3.458 7.207 7.285 8.246a9.982 9.982 0 0 0 2.618.354l.142-.001a3.001 3.001 0 0 0 2.516-1.426 2.989 2.989 0 0 0 .153-2.879l-.199-.416a1.919 1.919 0 0 1 .094-1.912 2.004 2.004 0 0 1 2.576-.755l.412.197c.412.198.85.299 1.301.299A3.022 3.022 0 0 0 22 12.14a9.935 9.935 0 0 0-.353-2.76c-1.04-3.826-4.353-6.754-8.247-7.284zm5.158 10.909-.412-.197c-1.828-.878-4.07-.198-5.135 1.494-.738 1.176-.813 2.576-.204 3.842l.199.416a.983.983 0 0 1-.051.961.992.992 0 0 1-.844.479h-.112a8.061 8.061 0 0 1-2.095-.283c-3.063-.831-5.403-3.479-5.826-6.586-.321-2.355.352-4.623 1.893-6.389a8.002 8.002 0 0 1 7.16-2.664c3.107.423 5.755 2.764 6.586 5.826.198.73.293 1.474.282 2.207-.012.807-.845 1.183-1.441.894z"></path><circle cx="7.5" cy="14.5" r="1.5"></circle><circle cx="7.5" cy="10.5" r="1.5"></circle><circle cx="10.5" cy="7.5" r="1.5"></circle><circle cx="14.5" cy="7.5" r="1.5"></circle></svg>
                     </div>
-                    <div>
-                        <span class="block text-2xl font-bold">6.8</span>
-                        <span class="block text-gray-500">Average mark</span>
+                    <div class="flex justify-center items-center">
+                        <?php
+                        use App\Models\Themes;
+                        $themeCount = Themes::count();
+                        ?>
+                        <div>
+                            <span class="block text-gray-500 text-center">Total Themes</span>
+                            <span class="block text-center text-2xl font-bold"><?php echo $themeCount; ?></span>
+                        </div>
                     </div>
                 </div>
                 <div class="flex items-center p-8 bg-white border border-black border-4 rounded-lg shadow">
@@ -94,10 +98,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
                         </svg>
                     </div>
-                    <div>
-                        <span class="inline-block text-2xl font-bold">9</span>
-                        <span class="inline-block text-xl text-gray-500 font-semibold">(14%)</span>
-                        <span class="block text-gray-500">Underperforming students</span>
+                    <div class="flex justify-center items-center">
+                        <?php
+                        use App\Models\Questions;
+                        $questionCount = Questions::count();
+                        ?>
+                        <div>
+                            <span class="block text-gray-500 text-center">Total Questions</span>
+                            <span class="block text-center text-2xl font-bold"><?php echo $questionCount; ?></span>
+                        </div>
                     </div>
                 </div>
                 <div class="flex items-center p-8 bg-white border border-black border-4 rounded-lg shadow">
@@ -106,9 +115,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                         </svg>
                     </div>
-                    <div>
-                        <span class="block text-2xl font-bold">83%</span>
-                        <span class="block text-gray-500">Finished homeworks</span>
+                    <div class="flex justify-center items-center">
+                        <?php
+                        use App\Models\Achievements;
+                        $achievementCount = Achievements::count();
+                        ?>
+                        <div>
+                            <span class="block text-gray-500 text-center">Total Achievements</span>
+                            <span class="block text-center text-2xl font-bold"><?php echo $achievementCount; ?></span>
+                        </div>
                     </div>
                 </div>
             </section>
