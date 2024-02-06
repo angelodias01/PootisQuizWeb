@@ -28,7 +28,11 @@ class ThemesController extends Controller
         $themes = Themes::all();
         return view('admin.themes.createTheme', compact('themes'));
     }
-
+    public function editTheme( $theme)
+    {
+        $theme = Themes::findOrFail($theme);
+        return view('admin.themes.editTheme', compact('theme'));
+    }
 
     public function store(Request $request)
     {
@@ -40,57 +44,24 @@ class ThemesController extends Controller
         $theme = new Themes();
         $theme->themeName = $validatedData['theme_name'];
         $theme->themeAbreviation = $validatedData['theme_abreviation'];
+        $theme->updated_at = null;
         $theme->save();
 
         return redirect()->route('check.all.themes')->with('success', 'Theme created successfully!');
     }
-
-
-    // Show a list of themes
-    public function index()
-    {
-        $theme = Themes::all();
-        return view('admin.themes.index', compact('theme'));
-    }
-
-    // Show the form to create a new theme
-    public function create()
-    {
-        return view('admin.themes.create');
-    }
-
-
-    // Show details of a specific theme
-    public function show(Themes $theme)
-    {
-        return view('admin.themes.show', compact('theme'));
-    }
-
-    // Show the form to edit a theme
-    public function edit(Themes $theme)
-    {
-        return view('admin.themes.edit', compact('theme'));
-    }
-
     // Update a theme after the form is submitted
-    public function update(Request $request, Themes $theme)
+    public function updateTheme(Request $request, Themes $theme)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'abreviation' => 'required',
+        $validatedData = $request->validate([
+            'theme_name' => 'required|string|max:255',
+            'theme_abreviation' => 'required|string|max:255',
         ]);
 
-        $theme->update($request->all());
+        $theme->themeName = $validatedData['theme_name'];
+        $theme->themeAbreviation = $validatedData['theme_abreviation'];
+        $theme->updated_at = now();
+        $theme->save();
 
-        return redirect()->route('admin.themes.index')
-            ->with('success', 'Themes updated successfully!');
-    }
-
-    // Delete a theme
-    public function destroy(Themes $theme)
-    {
-        $theme->delete();
-        return redirect()->route('admin.themes.index')
-            ->with('success', 'Themes deleted successfully!');
+        return redirect()->route('check.all.themes')->with('success', 'Theme updated successfully!');
     }
 }

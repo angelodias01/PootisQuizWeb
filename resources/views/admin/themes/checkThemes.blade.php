@@ -1,3 +1,4 @@
+@extends('layouts.admin')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,30 +13,24 @@
     <!-- Scripts from Bootstrap (popper.js needed for some components) -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>
 </head>
-
-@extends('layouts.admin')
 
 <body class="flex bg-gray-100 min-h-screen">
 <aside class="hidden sm:flex sm:flex-col">
-    <a class="flex items-center justify-center bg-gray-800">
-        <img src="{{ asset('pootisquiz.svg') }}" style="width: 200px; height: 280px;" alt="">
+    <a class="flex items-center justify-center bg-purple-400">
+        <img src="{{ asset('pootisquiz.svg') }}"  style="width: 200px; height: 280px;" alt="">
     </a>
-    <div class="flex-grow flex flex-col justify-between text-gray-500 bg-gray-800">
+    <div class="flex-grow flex flex-col justify-between text-gray-500 bg-purple-400 text-purple-100">
         <nav class="flex flex-col mx-6 my-4 space-y-2">
-            <a href="{{ route('admin') }}"
-               class="flex py-2 px-2 items-center justify-center rounded-lg {{ Request::route()->getName() == 'admin' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">
+            <a href="{{ route('admin') }}" class="flex py-2 px-2 items-center justify-center rounded-lg {{ Request::route()->getName() == 'admin' ? 'hover:bg-gray-500 hover:text-gray-500 focus:bg-gray-500 focus:text-gray-500' : 'hover:bg-gray-500 hover:text-gray-500 focus:bg-gray-500 focus:text-gray-500' }}">
                 <span class="text-s text-center text-white">Home</span>
             </a>
-            <hr class="border border-gray-700">
-            <a href="{{ route('check.all.themes') }}"
-               class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.themes' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">Themes</a>
-            <a href="{{ route('check.all.questions') }}"
-               class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.questions' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">Questions</a>
-            <a href="{{ route('check.all.achievements') }}"
-               class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.achievements' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">Achievements</a>
-            <a href="{{ route('check.all.users') }}"
-               class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.users' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">Users</a>
+            <hr class="border-solid border-4 border-white rounded-lg">
+            <a href="{{ route('check.all.themes') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.themes' ? 'bg-green-600 hover:bg-green-600 hover:text-gray-400 focus:bg-green-600 focus:text-gray-400' : 'hover:bg-green-700 hover:text-gray-400 focus:bg-green-700 focus:text-gray-400' }}">Themes</a>
+            <a href="{{ route('check.all.questions') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.questions' ? 'bg-gray-700 hover:bg-red-600 hover:text-gray-400 focus:bg-red-600 focus:text-gray-400' : 'hover:bg-red-700 hover:text-gray-400 focus:bg-red-700 focus:text-gray-400' }}">Questions</a>
+            <a href="{{ route('check.all.achievements') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.achievements' ? 'bg-blue-600 hover:bg-blue-600 hover:text-gray-400 focus:bg-blue-600 focus:text-gray-400' : 'hover:bg-blue-700 hover:text-gray-400 focus:bg-blue-700 focus:text-gray-400' }}">Achievements</a>
+            <a href="{{ route('check.all.users') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.users' ? 'bg-gray-700 hover:bg-yellow-600 hover:text-gray-400 focus:bg-yellow-600 focus:text-gray-400' : 'hover:bg-yellow-600 hover:text-gray-400 focus:bg-yellow-600 focus:text-gray-400' }}">Users</a>
         </nav>
     </div>
 </aside>
@@ -64,36 +59,41 @@
             </div>
         </div>
     </header>
-    <main class="p-6 sm:p-10 space-y-6">
-        <div class="flex justify-between items-center">
-            <h2 class="text-2xl font-semibold">Themes</h2>
-            <a href="{{ route('admin.themes.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full block text-center">
-                Create
-            </a>
+    <main class="pl-6">
+        <div class="flex justify-between items-center pt-6 ">
+            <h2 class="text-2xl font-semibold"></h2>
 
         </div>
-        <table class="border-collapse border border-gray-800">
-            <thead>
-            <tr>
-                <th class="border border-gray-800 px-4 py-2">ID</th>
-                <th class="border border-gray-800 px-4 py-2">Theme Name</th>
-                <th class="border border-gray-800 px-4 py-2">Theme Abreviation</th>
-                <th class="border border-gray-800 px-4 py-2">Created at</th>
+        <table class="border-collapse border border-4">
+            <thead class="border-collapse border border-black border-4">
+            <tr >
+                <!--<th class="border border-gray-800 px-4 py-2">ID</th>-->
+                <th class="border border-gray-800 px-4 py-2 border-4">Theme Name</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Theme Abbreviation</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Created at</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Updated at</th>
+                <th class="border border-gray-800 px-4 py-2 border-4" colspan="2"> <!-- Usar colspan="2" para ocupar 2 espaços -->
+                    <div class="flex justify-center">
+                        <a href="{{ route('admin.themes.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">
+                            Create New Theme
+                        </a>
+                    </div>
+                </th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="border-collapse border border-black border-4">
             @foreach($groupedThemes as $themeName => $themes)
                 @foreach ($themes as $theme)
-                    <tr id="themeRow{{ $theme->id }}">
-                        <td class="border border-gray-800 px-4 py-2">{{ $theme->themeId }}</td>
-                        <td class="border border-gray-800 px-4 py-2">{{ $theme->themeName }}</td>
-                        <td class="border border-gray-800 px-4 py-2">{{ $theme->themeAbreviation }}</td>
-                        <td class="border border-gray-800 px-4 py-2">{{ $theme->created_at }}</td>
-                        <td class="border border-gray-800 px-4 py-2">
-                            <a href=""
-                               class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a>
+                    <tr id="themeRow{{ $theme->id }}" class="border border-gray-800 px-4 py-2 border-4">
+                        <!--<td class="border border-gray-800 px-4 py-2">{{ $theme->themeId }}</td>-->
+                        <td class="border border-gray-800 px-4 py-2 border-4">{{ $theme->themeName }}</td>
+                        <td class="border border-gray-800 px-4 py-2 border-4">{{ $theme->themeAbreviation }}</td>
+                        <td class="border border-gray-800 px-4 py-2 border-4">{{ $theme->created_at }}</td>
+                        <td class="border border-gray-800 px-4 py-2 border-4">{{ $theme->updated_at }}</td>
+                        <td class="border border-gray-800 px-4 py-2 border-4">
+                            <a href="{{ route('admin.themes.editTheme', ['theme' => $theme->themeId]) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit Theme</a>
                         </td>
-                        <td class="border border-gray-800 px-4 py-2">
+                        <td class="border border-gray-800 px-4 py-2 border-4">
                             <form id="deleteForm{{ $theme->themeId }}"
                                   action="{{ route('admin.themes.deleteTheme', ['theme' => $theme->themeId]) }}"
                                   method="POST"
@@ -102,10 +102,9 @@
                                 @method('DELETE')
                                 <button type="submit"
                                         class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
-                                    Delete
+                                    Delete Theme
                                 </button>
                             </form>
-
                         </td>
                     </tr>
                 @endforeach
@@ -113,8 +112,7 @@
             </tbody>
         </table>
     </main>
-</div>
 
-<script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>
+</div>
 </body>
 </html>

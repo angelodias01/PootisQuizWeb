@@ -16,19 +16,19 @@
 @extends('layouts.admin')
 <body class="flex bg-gray-100 min-h-screen">
 <aside class="hidden sm:flex sm:flex-col">
-    <a class="flex items-center justify-center bg-gray-800">
-        <img src="{{ asset('pootisquiz.svg') }}" alt="">
+    <a class="flex items-center justify-center bg-purple-400">
+        <img src="{{ asset('pootisquiz.svg') }}"  style="width: 200px; height: 280px;" alt="">
     </a>
-    <div class="flex-grow flex flex-col justify-between text-gray-500 bg-gray-800">
+    <div class="flex-grow flex flex-col justify-between text-gray-500 bg-purple-400 text-purple-100">
         <nav class="flex flex-col mx-6 my-4 space-y-2">
-            <a href="{{ route('admin') }}" class="flex py-2 px-2 items-center justify-center rounded-lg {{ Request::route()->getName() == 'admin' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">
+            <a href="{{ route('admin') }}" class="flex py-2 px-2 items-center justify-center rounded-lg {{ Request::route()->getName() == 'admin' ? 'hover:bg-gray-500 hover:text-gray-500 focus:bg-gray-500 focus:text-gray-500' : 'hover:bg-gray-500 hover:text-gray-500 focus:bg-gray-500 focus:text-gray-500' }}">
                 <span class="text-s text-center text-white">Home</span>
             </a>
-            <hr class="border border-gray-700">
-            <a href="{{ route('check.all.themes') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.themes' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">Themes</a>
-            <a href="{{ route('check.all.questions') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.questions' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">Questions</a>
-            <a href="{{ route('check.all.achievements') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.achievements' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">Achievements</a>
-            <a href="{{ route('check.all.users') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.users' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">Users</a>
+            <hr class="border-solid border-4 border-white rounded-lg">
+            <a href="{{ route('check.all.themes') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.themes' ? 'bg-green-600 hover:bg-green-600 hover:text-gray-400 focus:bg-green-600 focus:text-gray-400' : 'hover:bg-green-700 hover:text-gray-400 focus:bg-green-700 focus:text-gray-400' }}">Themes</a>
+            <a href="{{ route('check.all.questions') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.questions' ? 'bg-red-600 hover:bg-red-600 hover:text-gray-400 focus:bg-red-600 focus:text-gray-400' : 'hover:bg-red-700 hover:text-gray-400 focus:bg-red-700 focus:text-gray-400' }}">Questions</a>
+            <a href="{{ route('check.all.achievements') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.achievements' ? 'bg-blue-600 hover:bg-blue-600 hover:text-gray-400 focus:bg-blue-600 focus:text-gray-400' : 'hover:bg-blue-700 hover:text-gray-400 focus:bg-blue-700 focus:text-gray-400' }}">Achievements</a>
+            <a href="{{ route('check.all.users') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.users' ? 'bg-yellow-600 hover:bg-yellow-600 hover:text-gray-400 focus:bg-yellow-600 focus:text-gray-400' : 'hover:bg-yellow-600 hover:text-gray-400 focus:bg-yellow-600 focus:text-gray-400' }}">Users</a>
         </nav>
     </div>
 </aside>
