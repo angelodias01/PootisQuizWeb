@@ -65,8 +65,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/themes', [ThemesController::class, 'index'])->name('admin.themes.index');
     Route::get('/themes/create', [ThemesController::class, 'createTheme'])->name('admin.themes.create');
     Route::post('/themes/store', [ThemesController::class, 'store'])->name('admin.themes.store');
-    Route::get('/themes/{theme}/edit', [ThemesController::class, 'edit'])->name('admin.themes.edit');
-    Route::put('/themes/{theme}', [ThemesController::class, 'update'])->name('admin.themes.update');
+    Route::get('/themes/editTheme/{theme}', [ThemesController::class, 'editTheme'])->name('admin.themes.editTheme');
+    Route::put('/themes/{theme}', [ThemesController::class, 'updateTheme'])->name('admin.themes.updateTheme');
     Route::delete('/themes/{theme}', [ThemesController::class, 'deleteTheme'])->name('admin.themes.deleteTheme');
 });
 

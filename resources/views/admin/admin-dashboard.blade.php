@@ -18,19 +18,19 @@
 
     <body class="flex bg-gray-100 min-h-screen">
     <aside class="hidden sm:flex sm:flex-col">
-        <a class="flex items-center justify-center bg-gray-800">
-            <img src="{{ asset('pootisquiz.svg') }}" alt="">
+        <a class="flex items-center justify-center bg-purple-400">
+            <img src="{{ asset('pootisquiz.svg') }}"  style="width: 200px; height: 280px;" alt="">
         </a>
-        <div class="flex-grow flex flex-col justify-between text-gray-500 bg-gray-800">
+        <div class="flex-grow flex flex-col justify-between text-gray-500 bg-purple-400 text-purple-100">
             <nav class="flex flex-col mx-6 my-4 space-y-2">
-                <a href="{{ route('admin') }}" class="flex py-2 px-2 items-center justify-center rounded-lg {{ Request::route()->getName() == 'admin' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">
+                <a href="{{ route('admin') }}" class="flex py-2 px-2 items-center justify-center rounded-lg {{ Request::route()->getName() == 'admin' ? 'bg-gray-500 hover:bg-gray-500 hover:text-gray-500 focus:bg-gray-500 focus:text-gray-500' : 'bg-gray-500 hover:bg-gray-500 hover:text-gray-500 focus:bg-gray-500 focus:text-gray-500' }}">
                     <span class="text-s text-center text-white">Home</span>
                 </a>
-                <hr class="border border-gray-700">
-                <a href="{{ route('check.all.themes') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.themes' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">Themes</a>
-                <a href="{{ route('check.all.questions') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.questions' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">Questions</a>
-                <a href="{{ route('check.all.achievements') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.achievements' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">Achievements</a>
-                <a href="{{ route('check.all.users') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.users' ? 'bg-gray-700 hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' : 'hover:bg-gray-700 hover:text-gray-400 focus:bg-gray-700 focus:text-gray-400' }}">Users</a>
+                <hr class="border-solid border-4 border-white rounded-lg">
+                <a href="{{ route('check.all.themes') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.themes' ? 'bg-gray-700 hover:bg-green-600 hover:text-gray-400 focus:bg-green-600 focus:text-gray-400' : 'hover:bg-green-700 hover:text-gray-400 focus:bg-green-700 focus:text-gray-400' }}">Themes</a>
+                <a href="{{ route('check.all.questions') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.questions' ? 'bg-gray-700 hover:bg-red-600 hover:text-gray-400 focus:bg-red-600 focus:text-gray-400' : 'hover:bg-red-700 hover:text-gray-400 focus:bg-red-700 focus:text-gray-400' }}">Questions</a>
+                <a href="{{ route('check.all.achievements') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.achievements' ? 'bg-gray-700 hover:bg-blue-600 hover:text-gray-400 focus:bg-blue-600 focus:text-gray-400' : 'hover:bg-blue-700 hover:text-gray-400 focus:bg-blue-700 focus:text-gray-400' }}">Achievements</a>
+                <a href="{{ route('check.all.users') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.users' ? 'bg-gray-700 hover:bg-yellow-600 hover:text-gray-400 focus:bg-yellow-600 focus:text-gray-400' : 'hover:bg-yellow-600 hover:text-gray-400 focus:bg-yellow-600 focus:text-gray-400' }}">Users</a>
             </nav>
         </div>
     </aside>
@@ -58,7 +58,7 @@
         </header>
         <main class="p-6 sm:p-10 space-y-6">
             <section class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
-                <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                <div class="flex items-center p-8 bg-white border border-black border-4 rounded-lg shadow">
                     <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-purple-600 bg-purple-100 rounded-full mr-6">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" style="fill: rgba(147, 51, 234, 1);"><path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z"></path></svg>
                     </div>
@@ -77,7 +77,7 @@
                         <span class="text-center block text-2xl font-bold"><?php echo $totalAdmins; ?></span>
                     </div>
                 </div>
-                <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                <div class="flex items-center p-8 bg-white border border-black border-4 rounded-lg shadow">
                     <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
                         <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -88,7 +88,7 @@
                         <span class="block text-gray-500">Average mark</span>
                     </div>
                 </div>
-                <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                <div class="flex items-center p-8 bg-white border border-black border-4 rounded-lg shadow">
                     <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-red-600 bg-red-100 rounded-full mr-6">
                         <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
@@ -100,7 +100,7 @@
                         <span class="block text-gray-500">Underperforming students</span>
                     </div>
                 </div>
-                <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                <div class="flex items-center p-8 bg-white border border-black border-4 rounded-lg shadow">
                     <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-blue-600 bg-blue-100 rounded-full mr-6">
                         <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -113,7 +113,7 @@
                 </div>
             </section>
             <section class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
-                <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                <div class="flex items-center p-8 bg-white border border-black border-4 rounded-lg shadow">
                     <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-purple-600 bg-purple-100 rounded-full mr-6">
                         <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -124,7 +124,7 @@
                         <span class="block text-gray-500">Students</span>
                     </div>
                 </div>
-                <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                <div class="flex items-center p-8 bg-white border border-black border-4 rounded-lg shadow">
                     <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
                         <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -135,7 +135,7 @@
                         <span class="block text-gray-500">Average mark</span>
                     </div>
                 </div>
-                <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                <div class="flex items-center p-8 bg-white border border-black border-4 rounded-lg shadow">
                     <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-red-600 bg-red-100 rounded-full mr-6">
                         <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
@@ -147,7 +147,7 @@
                         <span class="block text-gray-500">Underperforming students</span>
                     </div>
                 </div>
-                <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                <div class="flex items-center p-8 bg-white border border-black border-4 rounded-lg shadow">
                     <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-blue-600 bg-blue-100 rounded-full mr-6">
                         <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
