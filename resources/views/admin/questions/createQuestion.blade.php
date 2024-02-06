@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
 
-    <!-- CSS Bootstrap -->
+    <!-- CSS  Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
 
     <!-- Scripts from Bootstrap (popper.js needed for some components) -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
@@ -15,11 +14,10 @@
 </head>
 
 @extends('layouts.admin')
-
 <body class="flex bg-gray-100 min-h-screen">
 <aside class="hidden sm:flex sm:flex-col">
     <a class="flex items-center justify-center bg-gray-800">
-        <img src="{{ asset('pootisquiz.svg') }}" style="width: 200px; height: 280px;" alt="">
+        <img src="{{ asset('pootisquiz.svg') }}" alt="">
     </a>
     <div class="flex-grow flex flex-col justify-between text-gray-500 bg-gray-800">
         <nav class="flex flex-col mx-6 my-4 space-y-2">
@@ -65,56 +63,57 @@
         </div>
     </header>
     <main class="p-6 sm:p-10 space-y-6">
-        <div class="flex justify-between items-center">
-            <h2 class="text-2xl font-semibold">Themes</h2>
-            <a href="{{ route('admin.themes.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full block text-center">
-                Create
-            </a>
-
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl font-semibold mb-4">Create Theme</h2>
+            @if(Session::has('success'))
+                <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                </div>
+            @endif
+            <br>
+            <form action="{{ route('admin.questions.store') }}" method="POST">
+                @csrf
+                <div class="mb-4">
+                    <label for="theme_id" class="block text-sm font-medium text-gray-700">Theme</label>
+                    <select name="theme_id" id="theme_id" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-10 pl-2 shadow-sm sm:text-sm border-gray-300 rounded-md" required>
+                        <option value=""></option>
+                        @foreach ($themes as $theme)
+                            <option value="{{ $theme->themeId }}">{{ $theme->themeName }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="question_text" class="block text-sm font-medium text-gray-700">Question Text</label>
+                    <textarea name="question_text" id="question_text" rows="4" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-2 shadow-sm sm:text-sm border-gray-300 rounded-md" required></textarea>
+                </div>
+                <div class="mb-4">
+                    <label for="correct_answer" class="block text-sm font-medium text-gray-700">Correct Answer</label>
+                    <input type="text" name="correct_answer" id="correct_answer" autocomplete="off" required
+                           class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-10 pl-2 shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+                <div class="mb-4">
+                    <label for="wrong_answer_1" class="block text-sm font-medium text-gray-700">Wrong Answer 1</label>
+                    <input type="text" name="wrong_answer_1" id="wrong_answer_1" autocomplete="off" required
+                           class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-10 pl-2 shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+                <div class="mb-4">
+                    <label for="wrong_answer_2" class="block text-sm font-medium text-gray-700">Wrong Answer 2</label>
+                    <input type="text" name="wrong_answer_2" id="wrong_answer_2" autocomplete="off" required
+                           class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-10 pl-2 shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+                <div class="mb-4">
+                    <label for="wrong_answer_3" class="block text-sm font-medium text-gray-700">Wrong Answer 3</label>
+                    <input type="text" name="wrong_answer_3" id="wrong_answer_3" autocomplete="off" required
+                           class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-10 pl-2 shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+                <div class="flex justify-end">
+                    <button type="submit"
+                            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">Create
+                    </button>
+                </div>
+            </form>
         </div>
-        <table class="border-collapse border border-gray-800">
-            <thead>
-            <tr>
-                <th class="border border-gray-800 px-4 py-2">ID</th>
-                <th class="border border-gray-800 px-4 py-2">Theme Name</th>
-                <th class="border border-gray-800 px-4 py-2">Theme Abreviation</th>
-                <th class="border border-gray-800 px-4 py-2">Created at</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($groupedThemes as $themeName => $themes)
-                @foreach ($themes as $theme)
-                    <tr id="themeRow{{ $theme->id }}">
-                        <td class="border border-gray-800 px-4 py-2">{{ $theme->themeId }}</td>
-                        <td class="border border-gray-800 px-4 py-2">{{ $theme->themeName }}</td>
-                        <td class="border border-gray-800 px-4 py-2">{{ $theme->themeAbreviation }}</td>
-                        <td class="border border-gray-800 px-4 py-2">{{ $theme->created_at }}</td>
-                        <td class="border border-gray-800 px-4 py-2">
-                            <a href=""
-                               class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a>
-                        </td>
-                        <td class="border border-gray-800 px-4 py-2">
-                            <form id="deleteForm{{ $theme->themeId }}"
-                                  action="{{ route('admin.themes.deleteTheme', ['theme' => $theme->themeId]) }}"
-                                  method="POST"
-                                  onsubmit="return confirm('Are you sure you want to delete this theme?');">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
-                                    Delete
-                                </button>
-                            </form>
-
-                        </td>
-                    </tr>
-                @endforeach
-            @endforeach
-            </tbody>
-        </table>
     </main>
 </div>
-
-<script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>
 </body>
 </html>

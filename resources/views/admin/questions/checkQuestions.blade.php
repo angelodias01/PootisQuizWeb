@@ -57,7 +57,12 @@
         </div>
     </header>
     <main class="p-6 sm:p-10 space-y-6">
-        <h2 class="text-2xl font-semibold mb-4">Questions</h2>
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-2xl font-semibold">Questions</h2>
+            <a href="{{ route('admin.questions.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full block text-center">
+                Create
+            </a>
+        </div>
         <table class="border-collapse border border-gray-800">
             <thead>
             <tr>
@@ -87,7 +92,7 @@
                             <a href="<?= route('check.all.questions') ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a>
                         </td>
                         <td class="border border-gray-800 px-4 py-2">
-                            <form id="deleteForm{{ $question->questionsId }}" action="{{ route('admin.questions.delete', ['question' => $question->questionsId]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this question?');">
+                            <form id="deleteForm{{ $question->questionsId }}" action="{{ route('admin.questions.deleteQuestion', ['question' => $question->questionsId]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this question?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Delete</button>

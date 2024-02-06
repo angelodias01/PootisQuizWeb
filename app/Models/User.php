@@ -21,5 +21,10 @@ class User extends Authenticatable
         'is_admin'
     ];
 
-    public $timestamps = false;
+    public $timestamps = true;
+
+    public static function getUsedIds()
+    {
+        return static::pluck('userId')->toArray();
+    }
 }

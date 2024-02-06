@@ -8,18 +8,41 @@ use Illuminate\Http\Request;
 
 class AchievementsController extends Controller
 {
+
     public function checkAllAchievements()
     {
         $achievements = Achievements::select('achievementId', 'achievementName', 'description', 'created_at')->get();
 
         return view('/admin/achievements/checkAchievements', compact('achievements'));
     }
-
     public function deleteAchievement(Achievements $achievement)
     {
         $achievement->delete();
         return redirect()->route('check.all.achievements')->with('success', 'Achievement deleted successfully!');
     }
+    public function createAchievement()
+    {
+        $achievements = Achievements::all();
+        return view('admin.achievements.createAchievement', compact('achievements'));
+    }
+
+
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'achievement_name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+        ]);
+
+        $achievement = new Achievements();
+        $achievement->achievementName = $validatedData['achievement_name'];
+        $achievement->description = $validatedData['description'];
+        $achievement->save();
+
+        return redirect()->route('check.all.achievements')->with('success', 'Achievement created successfully!');
+    }
+
+
 
     // Shows an achievements list
     public function index()
@@ -31,21 +54,7 @@ class AchievementsController extends Controller
     // Shows the form for a new achievement
     public function create()
     {
-        return view('admin.achievements.create');
-    }
-
-    // Stores a new achievement in the bd
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'name' => 'required',
-            'description' => 'required',
-        ]);
-
-        Achievements::create($request->only(['name', 'description']));
-
-        return redirect()->route('admin.achievements.index')
-            ->with('success', 'Achievement created successfully!');
+        return view('admin.achievements.createAchievement');
     }
 
     // Shows a single achievement

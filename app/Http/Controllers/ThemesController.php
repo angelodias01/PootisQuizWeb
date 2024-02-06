@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Achievements;
 use App\Models\Themes;
 use Illuminate\Http\Request;
 
@@ -22,6 +23,29 @@ class ThemesController extends Controller
         return redirect()->route('check.all.themes')->with('success', 'Theme deleted successfully!');
     }
 
+    public function createTheme()
+    {
+        $themes = Themes::all();
+        return view('admin.themes.createTheme', compact('themes'));
+    }
+
+
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'theme_name' => 'required|string|max:255',
+            'theme_abreviation' => 'required|string|max:255',
+        ]);
+
+        $theme = new Themes();
+        $theme->themeName = $validatedData['theme_name'];
+        $theme->themeAbreviation = $validatedData['theme_abreviation'];
+        $theme->save();
+
+        return redirect()->route('check.all.themes')->with('success', 'Theme created successfully!');
+    }
+
+
     // Show a list of themes
     public function index()
     {
@@ -35,19 +59,6 @@ class ThemesController extends Controller
         return view('admin.themes.create');
     }
 
-    // Store a newly created theme in the database
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'name' => 'required',
-            'abbreviation' => 'required',
-        ]);
-
-        Themes::create($request->all());
-
-        return redirect()->route('admin.themes.index')
-            ->with('success', 'Themes created successfully!');
-    }
 
     // Show details of a specific theme
     public function show(Themes $theme)
@@ -66,7 +77,7 @@ class ThemesController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'abbreviation' => 'required',
+            'abreviation' => 'required',
         ]);
 
         $theme->update($request->all());

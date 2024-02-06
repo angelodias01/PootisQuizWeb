@@ -12,10 +12,16 @@ class Themes extends Model
     protected $primaryKey = "themeId";
 
     protected $fillable = [
-        'name',
-        'themeAbreviation',
+        'theme_id',
+        'theme_name',
+        'theme_abbreviation',
     ];
 
-    public $timestamps = false;
+    public $timestamps = true;
+
+    public static function getUsedIds()
+    {
+        return static::pluck('themeId')->toArray();
+    }
 }
 ?>

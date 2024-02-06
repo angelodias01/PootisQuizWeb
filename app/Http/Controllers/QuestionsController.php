@@ -42,6 +42,44 @@ class QuestionsController extends Controller
         return redirect()->route('check.all.questions')->with('success', 'Question deleted successfully!');
     }
 
+    public function createQuestion()
+    {
+        $themes = Themes::all();
+        return view('admin.questions.createQuestion', compact( 'themes'));
+
+    }
+
+    public function store(Request $request)
+    {
+        // Validação dos dados do formulário
+        $validatedData = $request->validate([
+            'theme_id' => 'required|string|max:255',
+            'question_text' => 'required|string',
+            'correct_answer' => 'required|string',
+            'wrong_answer_1' => 'required|string',
+            'wrong_answer_2' => 'required|string',
+            'wrong_answer_3' => 'required|string',
+            'selected_answer' => 'string'
+        ]);
+
+        // Criação de uma nova instância de Question
+        $question = new Questions();
+        $question->themeId = $validatedData['theme_id'];
+        $question->questionsText = $validatedData['question_text'];
+        $question->correctAnswer = $validatedData['correct_answer'];
+        $question->wrongAnswer1 = $validatedData['wrong_answer_1'];
+        $question->wrongAnswer2 = $validatedData['wrong_answer_2'];
+        $question->wrongAnswer3 = $validatedData['wrong_answer_3'];
+        $question->selectedAnswer = "";
+
+        // Salva a nova questão no banco de dados
+        $question->save();
+
+        // Redireciona para uma rota de sucesso com uma mensagem flash
+        return redirect()->route('check.all.questions')->with('success', 'Questão criada com sucesso!');
+    }
+
+
 
     // Show a list of questions
     public function index()
@@ -49,29 +87,7 @@ class QuestionsController extends Controller
         $questions = Questions::all();
         return view('admin.questions.index', compact('questions'));
     }
-    // Show the form to create a new question
-    public function create()
-    {
-        return view('admin.questions.create');
-    }
 
-    // Store a newly created question in the database
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'theme_id' => 'required',
-            'question_text' => 'required',
-            'correct_answer' => 'required',
-            'wrong_answer1' => 'required',
-            'wrong_answer2' => 'required',
-            'wrong_answer3' => 'required',
-        ]);
-
-        Questions::create($request->all());
-
-        return redirect()->route('admin.questions.index')
-            ->with('success', 'Question created successfully!');
-    }
 
     // Show a specific question
     public function show(Questions $question)

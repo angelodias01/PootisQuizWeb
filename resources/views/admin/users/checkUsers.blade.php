@@ -56,7 +56,9 @@
         </div>
     </header>
     <main class="p-6 sm:p-10 space-y-6">
-        <h2 class="text-2xl font-semibold mb-4">Users</h2>
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-2xl font-semibold">Users</h2>
+        </div>
         <table class="border-collapse border border-gray-800">
             <thead>
             <tr>
