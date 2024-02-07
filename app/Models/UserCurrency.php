@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserCurrency extends Model
 {
     use HasFactory;
-
+    protected $table = 'usercurrency';
     protected $fillable = [
         'user_id',
         'amount',

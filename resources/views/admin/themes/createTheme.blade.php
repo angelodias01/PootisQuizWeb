@@ -95,7 +95,7 @@
                 <div class="md:flex md:items-end md:justify-end">
                     <div class="md:w-1/3"></div>
                     <div class="md:w-2/3 flex justify-end">
-                        <button class="shadow bg-green-600 hover:bg-green-100 focus:shadow-outline focus:outline-none text-white hover:text-red-500 font-bold py-2 px-4 rounded" type="submit">
+                        <button class="shadow bg-green-600 hover:bg-green-100 focus:shadow-outline focus:outline-none text-white hover:text-red-500 font-bold py-2 px-4 rounded-lg" type="submit">
                             Create Theme
                         </button>
                     </div>

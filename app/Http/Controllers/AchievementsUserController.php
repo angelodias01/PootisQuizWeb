@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AchievementUser;
+use App\Models\AchievementsUser;
 use Illuminate\Http\Request;
 
-class AchievementUserController extends Controller
+class AchievementsUserController extends Controller
 {
     // Show a list of achievement users
     public function index()
     {
-        $achievementUsers = AchievementUser::all();
-        return view('admin.achievementUser.index', compact('achievementUsers'));
+        $achievementUser = AchievementsUser::all();
+        return view('admin.achievementUser.index', compact('achievementUser'));
     }
 
     // Show the form to create a new achievement user
@@ -29,26 +29,26 @@ class AchievementUserController extends Controller
             'date_earned' => 'required',
         ]);
 
-        AchievementUser::create($request->all());
+        AchievementsUser::create($request->all());
 
         return redirect()->route('admin.achievementUser.index')
             ->with('success', 'Achievement user created successfully!');
     }
 
     // Show a specific achievement user
-    public function show(AchievementUser $achievementUser)
+    public function show(AchievementsUser $achievementUser)
     {
         return view('admin.achievementUser.show', compact('achievementUser'));
     }
 
     // Show the form to edit an achievement user
-    public function edit(AchievementUser $achievementUser)
+    public function edit(AchievementsUser $achievementUser)
     {
         return view('admin.achievementUser.edit', compact('achievementUser'));
     }
 
     // Update an achievement user after the form is submitted
-    public function update(Request $request, AchievementUser $achievementUser)
+    public function update(Request $request, AchievementsUser $achievementUser)
     {
         $this->validate($request, [
             'user_id' => 'required',
@@ -63,7 +63,7 @@ class AchievementUserController extends Controller
     }
 
     // Delete an achievement user
-    public function destroy(AchievementUser $achievementUser)
+    public function destroy(AchievementsUser $achievementUser)
     {
         $achievementUser->delete();
         return redirect()->route('admin.achievementUser.index')

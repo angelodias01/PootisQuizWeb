@@ -9,7 +9,7 @@ use App\Http\Controllers\ScoresController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ThemesController;
 use App\Http\Controllers\UserCurrencyController;
-use App\Http\Controllers\AchievementUserController;
+use App\Http\Controllers\AchievementsUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -89,4 +89,4 @@ Route::resource('shop', ShopController::class);
 Route::resource('themes', ThemesController::class);
 Route::resource('users', UsersController::class);
 Route::resource('user-currency', UserCurrencyController::class);
-Route::resource('achievement-user', AchievementUserController::class);
+Route::resource('achievement-user', AchievementsUserController::class);

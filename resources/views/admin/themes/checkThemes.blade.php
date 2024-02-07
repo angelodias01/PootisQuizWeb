@@ -59,20 +59,15 @@
             </div>
         </div>
     </header>
-    <main class="pl-6">
-        <div class="flex justify-between items-center pt-6 ">
-            <h2 class="text-2xl font-semibold"></h2>
-
-        </div>
-        <table class="border-collapse border border-4">
-            <thead class="border-collapse border border-black border-4">
-            <tr >
-                <!--<th class="border border-gray-800 px-4 py-2">ID</th>-->
+    <main class="pl-4 pt-4 pb-4">
+        <table class="border-collapse rounded-lg border-solid border-4 rounded-lg">
+            <thead>
+            <tr>
                 <th class="border border-gray-800 px-4 py-2 border-4">Theme Name</th>
                 <th class="border border-gray-800 px-4 py-2 border-4">Theme Abbreviation</th>
                 <th class="border border-gray-800 px-4 py-2 border-4">Created at</th>
                 <th class="border border-gray-800 px-4 py-2 border-4">Updated at</th>
-                <th class="border border-gray-800 px-4 py-2 border-4" colspan="2"> <!-- Usar colspan="2" para ocupar 2 espaços -->
+                <th class="border border-gray-800 px-4 py-2 border-4" colspan="2">
                     <div class="flex justify-center">
                         <a href="{{ route('admin.themes.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">
                             Create New Theme
@@ -81,11 +76,10 @@
                 </th>
             </tr>
             </thead>
-            <tbody class="border-collapse border border-black border-4">
+            <tbody>
             @foreach($groupedThemes as $themeName => $themes)
                 @foreach ($themes as $theme)
-                    <tr id="themeRow{{ $theme->id }}" class="border border-gray-800 px-4 py-2 border-4">
-                        <!--<td class="border border-gray-800 px-4 py-2">{{ $theme->themeId }}</td>-->
+                    <tr id="themeRow{{ $theme->id }}" class=" px-4 py-2">
                         <td class="border border-gray-800 px-4 py-2 border-4">{{ $theme->themeName }}</td>
                         <td class="border border-gray-800 px-4 py-2 border-4">{{ $theme->themeAbreviation }}</td>
                         <td class="border border-gray-800 px-4 py-2 border-4">{{ $theme->created_at }}</td>
@@ -100,8 +94,7 @@
                                   onsubmit="return confirm('Are you sure you want to delete this theme?');">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit"
-                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
+                                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
                                     Delete Theme
                                 </button>
                             </form>
@@ -112,7 +105,6 @@
             </tbody>
         </table>
     </main>
-
 </div>
 </body>
 </html>
