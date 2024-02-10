@@ -18,50 +18,55 @@ class UsersController extends Controller
         return redirect()->route('check.all.users')->with('success', 'User deleted successfully!');
     }
 
-
-
-
     public function index()
     {
         $users = User::all();
         return view('admin.users.index', compact('users'));
     }
-    public function create()
+    public function createUser()
     {
-        return view('admin.users.create');
+        return view('admin.users.createUser');
     }
+
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'username' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required',
-            'is_admin' => 'required',
         ]);
 
-        User::create($request->all());
+        $user = new User();
+        $user->username = $request['username'];
+        $user->email = $request['email'];
+        $user->password = bcrypt($request['password']);
+        $user->is_admin = 1;
+        $user->created_at = now();
+        $user->updated_at = null;
+        $user->save();
 
-        return redirect()->route('admin.users.index')->with('success', 'User created successfully!');
+
+        return redirect()->route('check.all.users')->with('success', 'User created successfully!');
     }
-    public function show(User $user)
+
+    public function editUser($user)
     {
-        return view('admin.users.show', compact('user'));
+        $user = User::findOrFail($user);
+        return view('admin.users.editUser', compact('user'));
     }
-    public function edit(User $user)
+    public function updateUser(Request $request, User $user)
     {
-        return view('admin.users.edit', compact('user'));
-    }
-    public function update(Request $request, User $user)
-    {
-        $this->validate($request, [
+        $request->validate([
             'username' => 'required',
-            'email' => 'required|email|unique:users,email,' . $user->id,
-            'password' => 'required',
-            'is_admin' => 'required',
+            'email' => 'required'
         ]);
 
-        $user->update($request->all());
+        $user->username = $request['username'];
+        $user->email = $request['email'];
+        $user->is_admin = $request['is_admin'];
+        $user->updated_at = now();
+        $user->save();
 
-        return redirect()->route('admin.users.index')->with('success', 'User updated successfully!');
+        return redirect()->route('check.all.users')->with('success', 'User updated successfully!');
     }
 }
