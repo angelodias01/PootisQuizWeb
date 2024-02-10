@@ -72,24 +72,14 @@
             </tr>
             </thead>
             <tbody>
-            <?php
-            use App\Models\Achievements;
-
-            if (isset($_GET['load_achievements'])) {
-                $achievements = Achievements::all();
-            } else {
-                $achievements = Achievements::all();
-            }
-
-            foreach ($achievements as $achievement) {
-                ?>
+            @foreach ($achievements as $achievement)
             <tr>
                 <td class="border border-gray-800 px-4 py-2 border-4"><?= $achievement->achievementId ?></td>
                 <td class="border border-gray-800 px-4 py-2 border-4"><?= $achievement->achievementName ?></td>
                 <td class="border border-gray-800 px-4 py-2 border-4"><?= $achievement->description ?></td>
                 <td class="border border-gray-800 px-4 py-2 border-4"><?= $achievement->created_at ?></td>
                 <td class="border border-gray-800 px-4 py-2 border-4">
-                    <a href="<?= route('check.all.achievements') ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a>
+                    <a href="{{ route('admin.achievements.editAchievement', ['achievement' => $achievement->achievementId]) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a>
                 </td>
                 <td class="border border-gray-800 px-4 py-2 border-4">
                     <form id="deleteForm<?= $achievement->achievementId ?>" action="{{ route('admin.achievements.delete', ['achievement' => $achievement->achievementId]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this achievement?');">
@@ -99,7 +89,7 @@
                     </form>
                 </td>
             </tr>
-            <?php } ?>
+            @endforeach
             </tbody>
         </table>
     </main>

@@ -37,13 +37,12 @@ class AchievementsController extends Controller
         $achievement = new Achievements();
         $achievement->achievementName = $validatedData['achievement_name'];
         $achievement->description = $validatedData['description'];
+        $achievement->created_at = now();
+        $achievement->updated_at = null;
         $achievement->save();
 
         return redirect()->route('check.all.achievements')->with('success', 'Achievement created successfully!');
     }
-
-
-
     // Shows an achievements list
     public function index()
     {
@@ -64,23 +63,24 @@ class AchievementsController extends Controller
     }
 
     // Shows the form to edit a question
-    public function edit(Achievements $achievement)
+    public function editAchievements($achievement)
     {
-        return view('admin.achievements.edit', compact('achievement'));
+        $achievement = Achievements::findOrFail($achievement);
+        return view('admin.achievements.editAchievements', compact('achievement'));
     }
-
-    // Updates the achievement after submitting the form
-    public function update(Request $request, Achievements $achievement)
+    public function updateAchievements(Request $request, Achievements $achievement)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'description' => 'required',
+        $validatedData = $request->validate([
+            'achievement_name' => 'required|string|max:255',
+            'description' => 'required|string',
         ]);
 
-        $achievement->update($request->only(['name', 'description']));
+        $achievement->achievementName = $validatedData['achievement_name'];
+        $achievement->description = $validatedData['description'];
+        $achievement->updated_at = now();
+        $achievement->save();
 
-        return redirect()->route('admin.achievements.index')
-            ->with('success', 'Achievement updated successfully!');
+        return redirect()->route('check.all.achievements')->with('success', 'Achievement updated successfully!');
     }
 
     // Deletes an achievement

@@ -56,12 +56,12 @@ Route::prefix('admin')->group(function () {
     Route::get('/achievements', [AchievementsController::class, 'index'])->name('admin.achievements.index');
     Route::get('/achievements/create', [AchievementsController::class, 'createAchievement'])->name('admin.achievements.create');
     Route::post('/achievements/store', [AchievementsController::class, 'store'])->name('admin.achievements.store');
-    Route::get('/achievements/{achievement}/edit', [AchievementsController::class, 'edit'])->name('admin.achievements.edit');
-    Route::put('/achievements/{achievement}', [AchievementsController::class, 'update'])->name('admin.achievements.update');
+    Route::get('/achievements/editAchievement/{achievement}', [AchievementsController::class, 'editAchievements'])->name('admin.achievements.editAchievement');
+    Route::put('/achievements/{achievement}', [AchievementsController::class, 'updateAchievements'])->name('admin.achievements.updateAchievement');
     Route::delete('/achievements/{achievement}', [AchievementsController::class, 'deleteAchievement'])->name('admin.achievements.delete');
 });
 
-// themes
+// themess
 Route::prefix('admin')->group(function () {
     Route::get('/themes', [ThemesController::class, 'index'])->name('admin.themes.index');
     Route::get('/themes/create', [ThemesController::class, 'createTheme'])->name('admin.themes.create');
