@@ -65,9 +65,10 @@
                 <th class="border border-gray-800 px-4 py-2 border-4">Password</th>
                 <th class="border border-gray-800 px-4 py-2 border-4">Is Admin</th>
                 <th class="border border-gray-800 px-4 py-2 border-4">Created at</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Updated at</th>
                 <th class="border border-gray-800 px-4 py-2 border-4 border-4" colspan="2">
                     <div class="flex justify-center">
-                        <a href="{{ route('admin.users.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full block text-center">
+                        <a href="{{ route('admin.users.createUser') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full block text-center">
                             Create
                         </a>
                     </div>
@@ -80,14 +81,15 @@
                     <td class="border border-gray-800 px-4 py-2 border-4">{{ $user->userId }}</td>
                     <td class="border border-gray-800 px-4 py-2 border-4">{{ $user->username }}</td>
                     <td class="border border-gray-800 px-4 py-2 border-4">{{ $user->email }}</td>
-                    <td class="border border-gray-800 px-4 py-2 border-4" data-password="{{ $user->password }}"><span class="password-display">************</span></td>
+                    <td class="border border-gray-800 px-4 py-2 border-4"> {{ $user->password }}</td>
                     <td class="border border-gray-800 px-4 py-2 border-4">{{ $user->is_admin ? 'Yes' : 'No' }}</td>
                     <td class="border border-gray-800 px-4 py-2 border-4">{{ $user->created_at }}</td>
+                    <td class="border border-gray-800 px-4 py-2 border-4">{{ $user->updated_at }}</td>
                     <td class="border border-gray-800 px-4 py-2 border-4">
-                        <a href="{{ route('check.all.users') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a>
+                        <a href="{{ route('admin.users.editUser', ['user' => $user->userId]) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a>
                     </td>
                     <td class="border border-gray-800 px-4 py-2 border-4">
-                        <form id="deleteForm{{ $user->userId }}" action="{{ route('admin.users.delete', ['user' => $user->userId]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                        <form id="deleteForm{{ $user->userId }}" action="{{ route('admin.users.deleteUser', ['user' => $user->userId]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Delete</button>

@@ -60,18 +60,16 @@
         <table class="border-collapse border border-gray-800">
             <thead>
             <tr>
-                <th class="border border-gray-800 px-4 py-2 border-4">Theme Name</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Theme</th>
                 <th class="border border-gray-800 px-4 py-2 border-4">Question Text</th>
                 <th class="border border-gray-800 px-4 py-2 border-4">Correct Answer</th>
-                <th class="border border-gray-800 px-4 py-2 border-4">Wrong Answer 1</th>
-                <th class="border border-gray-800 px-4 py-2 border-4">Wrong Answer 2</th>
-                <th class="border border-gray-800 px-4 py-2 border-4">Wrong Answer 3</th>
+                <th class="border border-gray-800 px-4 py-2 border-4" colspan="3" style="text-align: center; vertical-align: middle;">Wrong Answers</th>
                 <th class="border border-gray-800 px-4 py-2 border-4">Created at</th>
                 <th class="border border-gray-800 px-4 py-2 border-4">Updated at</th>
                 <th class="border border-gray-800 px-4 py-2 border-4" colspan="2">
                     <div class="flex justify-center">
                         <a href="{{ route('admin.questions.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full block text-center">
-                            Create
+                            Create New Question
                         </a>
                     </div>
                 </th>
@@ -90,13 +88,13 @@
                         <td class="border border-gray-800 px-4 py-2 border-4">{{ $question->created_at }}</td>
                         <td class="border border-gray-800 px-4 py-2 border-4">{{ $question->updated_at }}</td>
                         <td class="border border-gray-800 px-4 py-2 border-4">
-                            <a href="{{ route('admin.questions.editQuestion', ['question' => $question->questionsId]) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a>
+                            <a href="{{ route('admin.questions.editQuestion', ['question' => $question->questionsId]) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit Question</a>
                         </td>
                         <td class="border border-gray-800 px-4 py-2 border-4">
                             <form id="deleteForm{{ $question->questionsId }}" action="{{ route('admin.questions.deleteQuestion', ['question' => $question->questionsId]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this question?');">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Delete</button>
+                                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Delete Question</button>
                             </form>
                         </td>
                     </tr>

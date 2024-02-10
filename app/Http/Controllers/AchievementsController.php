@@ -11,7 +11,7 @@ class AchievementsController extends Controller
 
     public function checkAllAchievements()
     {
-        $achievements = Achievements::select('achievementId', 'achievementName', 'description', 'created_at')->get();
+        $achievements = Achievements::select('achievementId', 'achievementName', 'description', 'created_at','updated_at' )->get();
 
         return view('/admin/achievements/checkAchievements', compact('achievements'));
     }
