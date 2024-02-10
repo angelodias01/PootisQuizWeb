@@ -43,6 +43,7 @@ Route::get('/admin', function () {
 // deletes
 Route::delete('/admin/questions/{question}', [QuestionsController::class, 'deleteQuestion'])->name('admin.questions.delete');
 Route::delete('/admin/users/{user}', [UsersController::class, 'deleteUser'])->name('admin.users.delete');
+Route::get('/admin/users/create', [UsersController::class, 'createUser'])->name('admin.users.create');
 
 // routes to get to the admin pages
 Route::get('/admin/themes/checkThemes', [ThemesController::class, 'checkAllThemes'])->name('check.all.themes');
@@ -75,8 +76,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/questions', [QuestionsController::class, 'index'])->name('admin.questions.index');
     Route::get('/questions/create', [QuestionsController::class, 'createQuestion'])->name('admin.questions.create');
     Route::post('/questions/store', [QuestionsController::class, 'store'])->name('admin.questions.store');
-    Route::get('/questions/{question}/edit', [QuestionsController::class, 'edit'])->name('admin.questions.edit');
-    Route::put('/questions/{question}', [QuestionsController::class, 'update'])->name('admin.questions.update');
+    Route::get('/questions/edit/{question}', [QuestionsController::class, 'editQuestion'])->name('admin.questions.editQuestion');
+    Route::put('/questions/{question}', [QuestionsController::class, 'updateQuestion'])->name('admin.questions.updateQuestion');
     Route::delete('/questions/{question}', [QuestionsController::class, 'deleteQuestion'])->name('admin.questions.deleteQuestion');
 });
 

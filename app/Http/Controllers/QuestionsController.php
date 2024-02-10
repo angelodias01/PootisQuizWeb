@@ -24,7 +24,8 @@ class QuestionsController extends Controller
                 'questions.wrongAnswer1',
                 'questions.wrongAnswer2',
                 'questions.wrongAnswer3',
-                'questions.created_at'
+                'questions.created_at',
+                'questions.updated_at'
             )
             ->orderBy('themes.themeName') // Order by theme name in descending order
             ->get();
@@ -71,6 +72,8 @@ class QuestionsController extends Controller
         $question->wrongAnswer2 = $validatedData['wrong_answer_2'];
         $question->wrongAnswer3 = $validatedData['wrong_answer_3'];
         $question->selectedAnswer = "";
+        $question->created_at = now();
+        $question->updated_at = null;
 
         // Salva a nova questão no banco de dados
         $question->save();
@@ -96,27 +99,36 @@ class QuestionsController extends Controller
     }
 
     // Show the form to edit a question
-    public function edit(Questions $question)
+    public function editQuestion( $question)
     {
-        return view('admin.questions.edit', compact('question'));
+        $question = Questions::findOrFail($question);
+        $themes = Themes::all();
+        return view('admin.questions.editQuestion',compact('question', 'themes'));
     }
-
-    // Update a question after the form is submitted
-    public function update(Request $request, Questions $question)
+    // Update a theme after the form is submitted
+    public function updateQuestion(Request $request, Questions $question)
     {
-        $this->validate($request, [
-            'theme_id' => 'required',
-            'question_text' => 'required',
-            'correct_answer' => 'required',
-            'wrong_answer1' => 'required',
-            'wrong_answer2' => 'required',
-            'wrong_answer3' => 'required',
+        $validatedData = $request->validate([
+            'theme_id' => 'required|string|max:255',
+            'question_text' => 'required|string',
+            'correct_answer' => 'required|string',
+            'wrong_answer_1' => 'required|string',
+            'wrong_answer_2' => 'required|string',
+            'wrong_answer_3' => 'required|string',
+            'selected_answer' => 'string'
         ]);
 
-        $question->update($request->all());
+        $question->themeId = $validatedData['theme_id'];
+        $question->questionsText = $validatedData['question_text'];
+        $question->correctAnswer = $validatedData['correct_answer'];
+        $question->wrongAnswer1 = $validatedData['wrong_answer_1'];
+        $question->wrongAnswer2 = $validatedData['wrong_answer_2'];
+        $question->wrongAnswer3 = $validatedData['wrong_answer_3'];
+        $question->selectedAnswer = "";
+        $question->updated_at = now();
+        $question->save();
 
-        return redirect()->route('admin.questions.index')
-            ->with('success', 'Question updated successfully!');
+        return redirect()->route('check.all.questions')->with('success', 'Question updated successfully!');
     }
 
     // Delete a question

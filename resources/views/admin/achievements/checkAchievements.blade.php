@@ -55,20 +55,20 @@
         </div>
     </header>
     <main class="p-6 sm:p-10 space-y-6">
-        <div class="flex justify-between items-center mb-4">
-            <h2 class="text-2xl font-semibold">Achievements</h2>
-            <a href="{{ route('admin.achievements.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full block text-center">
-                Create
-            </a>
-        </div>
-        <table class="border-collapse border border-gray-800">
+        <table class="border-collapse rounded-lg border-solid border-4">
             <thead>
             <tr>
-                <th class="border border-gray-800 px-4 py-2">ID</th>
-                <th class="border border-gray-800 px-4 py-2">Achievement Name</th>
-                <th class="border border-gray-800 px-4 py-2">Description</th>
-                <th class="border border-gray-800 px-4 py-2">Created at</th>
-                <th class="border border-gray-800 px-4 py-2">Actions</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">ID</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Achievement Name</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Description</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Created at</th>
+                <th class="border border-gray-800 px-4 py-2 border-4 border-4" colspan="2">
+                    <div class="flex justify-center">
+                        <a href="{{ route('admin.achievements.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">
+                            Create New Achievement
+                        </a>
+                    </div>
+                </th>
             </tr>
             </thead>
             <tbody>
@@ -84,14 +84,14 @@
             foreach ($achievements as $achievement) {
                 ?>
             <tr>
-                <td class="border border-gray-800 px-4 py-2"><?= $achievement->achievementId ?></td>
-                <td class="border border-gray-800 px-4 py-2"><?= $achievement->achievementName ?></td>
-                <td class="border border-gray-800 px-4 py-2"><?= $achievement->description ?></td>
-                <td class="border border-gray-800 px-4 py-2"><?= $achievement->created_at ?></td>
-                <td class="border border-gray-800 px-4 py-2">
+                <td class="border border-gray-800 px-4 py-2 border-4"><?= $achievement->achievementId ?></td>
+                <td class="border border-gray-800 px-4 py-2 border-4"><?= $achievement->achievementName ?></td>
+                <td class="border border-gray-800 px-4 py-2 border-4"><?= $achievement->description ?></td>
+                <td class="border border-gray-800 px-4 py-2 border-4"><?= $achievement->created_at ?></td>
+                <td class="border border-gray-800 px-4 py-2 border-4">
                     <a href="<?= route('check.all.achievements') ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a>
                 </td>
-                <td class="border border-gray-800 px-4 py-2">
+                <td class="border border-gray-800 px-4 py-2 border-4">
                     <form id="deleteForm<?= $achievement->achievementId ?>" action="{{ route('admin.achievements.delete', ['achievement' => $achievement->achievementId]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this achievement?');">
                         @csrf
                         @method('DELETE')

@@ -56,33 +56,37 @@
         </div>
     </header>
     <main class="p-6 sm:p-10 space-y-6">
-        <div class="flex justify-between items-center mb-4">
-            <h2 class="text-2xl font-semibold">Users</h2>
-        </div>
         <table class="border-collapse border border-gray-800">
             <thead>
             <tr>
-                <th class="border border-gray-800 px-4 py-2">ID</th>
-                <th class="border border-gray-800 px-4 py-2">Username</th>
-                <th class="border border-gray-800 px-4 py-2">Email</th>
-                <th class="border border-gray-800 px-4 py-2">Password</th>
-                <th class="border border-gray-800 px-4 py-2">Is Admin</th>
-                <th class="border border-gray-800 px-4 py-2">Created at</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">ID</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Username</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Email</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Password</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Is Admin</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Created at</th>
+                <th class="border border-gray-800 px-4 py-2 border-4 border-4" colspan="2">
+                    <div class="flex justify-center">
+                        <a href="{{ route('admin.users.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full block text-center">
+                            Create
+                        </a>
+                    </div>
+                </th>
             </tr>
             </thead>
             <tbody>
             @foreach ($users as $user)
                 <tr>
-                    <td class="border border-gray-800 px-4 py-2">{{ $user->userId }}</td>
-                    <td class="border border-gray-800 px-4 py-2">{{ $user->username }}</td>
-                    <td class="border border-gray-800 px-4 py-2">{{ $user->email }}</td>
-                    <td class="border border-gray-800 px-4 py-2" data-password="{{ $user->password }}"><span class="password-display">************</span></td>
-                    <td class="border border-gray-800 px-4 py-2">{{ $user->is_admin ? 'Yes' : 'No' }}</td>
-                    <td class="border border-gray-800 px-4 py-2">{{ $user->created_at }}</td>
-                    <td class="border border-gray-800 px-4 py-2">
+                    <td class="border border-gray-800 px-4 py-2 border-4">{{ $user->userId }}</td>
+                    <td class="border border-gray-800 px-4 py-2 border-4">{{ $user->username }}</td>
+                    <td class="border border-gray-800 px-4 py-2 border-4">{{ $user->email }}</td>
+                    <td class="border border-gray-800 px-4 py-2 border-4" data-password="{{ $user->password }}"><span class="password-display">************</span></td>
+                    <td class="border border-gray-800 px-4 py-2 border-4">{{ $user->is_admin ? 'Yes' : 'No' }}</td>
+                    <td class="border border-gray-800 px-4 py-2 border-4">{{ $user->created_at }}</td>
+                    <td class="border border-gray-800 px-4 py-2 border-4">
                         <a href="{{ route('check.all.users') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a>
                     </td>
-                    <td class="border border-gray-800 px-4 py-2">
+                    <td class="border border-gray-800 px-4 py-2 border-4">
                         <form id="deleteForm{{ $user->userId }}" action="{{ route('admin.users.delete', ['user' => $user->userId]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?');">
                             @csrf
                             @method('DELETE')
