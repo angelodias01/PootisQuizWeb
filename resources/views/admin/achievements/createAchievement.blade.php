@@ -59,31 +59,48 @@
     </header>
     <main class="p-6 sm:p-10 space-y-6">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-2xl font-semibold mb-4">Create Achievement</h2>
             @if(Session::has('success'))
                 <div class="alert alert-success">
                     {{ Session::get('success') }}
                 </div>
             @endif
             <br>
-            <form action="{{ route('admin.achievements.store') }}" method="POST">
-                @csrf
-                <div class="mb-4">
-                    <label for="achievementName" class="block text-sm font-medium text-gray-700">Achievement Name</label>
-                    <input type="text" name="achievement_name" id="achievement_name" autocomplete="off" required
-                           class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-10 pl-2 shadow-sm sm:text-sm border-gray-300 rounded-md">
-                </div>
-                <div class="mb-4">
-                    <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-                    <textarea name="description" id="description" rows="6" autocomplete="off" required
-                              class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-2 shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
-                </div>
-                <div class="flex justify-end">
-                    <button type="submit"
-                            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">Create
-                    </button>
-                </div>
-            </form>
+                <form action="{{ route('admin.achievements.store') }}" method="POST" class="p-8 mt-6 lg:mt-0 border border-black border-3 rounded-lg bg-white">
+                    @csrf
+
+                    <div class="md:flex mb-8">
+                        <div class="md:w-1/3">
+                            <label class="block text-gray-600 font-bold md:text-left pt-3 md:mb-0 pr-4" for="achievement_name">
+                                Achievement Name
+                            </label>
+                        </div>
+                        <div class="md:w-2/3">
+                            <input type="text" name="achievement_name" id="achievement_name" autocomplete="off" required
+                                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-10 pl-2 shadow-sm sm:text-sm border border-black border-3 rounded-lg">
+                        </div>
+                    </div>
+
+                    <div class="md:flex mb-8">
+                        <div class="md:w-1/3">
+                            <label class="block text-gray-600 font-bold md:text-left pt-3 md:mb-0 pr-4" for="description">
+                                Description
+                            </label>
+                        </div>
+                        <div class="md:w-2/3">
+            <textarea name="description" id="description" rows="6" autocomplete="off" required
+                      class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-40 pl-2 shadow-sm sm:text-sm border border-black border-3 rounded-lg resize-none"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="md:flex md:items-end md:justify-end">
+                        <div class="md:w-1/3"></div>
+                        <div class="md:w-2/3 flex justify-end">
+                            <button class="shadow bg-green-600 hover:bg-green-100 focus:shadow-outline focus:outline-none text-white hover:text-red-500 font-bold py-2 px-4 rounded-lg" type="submit">
+                                Create Achievement
+                            </button>
+                        </div>
+                    </div>
+                </form>
         </div>
     </main>
 </div>

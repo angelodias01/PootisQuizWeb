@@ -60,7 +60,7 @@
         </div>
     </header>
     <main class="pl-4 pt-4 pb-4">
-        <table class="border-collapse rounded-lg border-solid border-4 rounded-lg">
+        <table class="border-collapse rounded-lg border-solid border-4">
             <thead>
             <tr>
                 <th class="border border-gray-800 px-4 py-2 border-4">Theme Name</th>

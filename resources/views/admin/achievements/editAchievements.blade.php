@@ -24,9 +24,9 @@
                 <span class="text-s text-center text-white">Home</span>
             </a>
             <hr class="border-solid border-4 border-white rounded-lg">
-            <a href="{{ route('check.all.themes') }}" class="text-s bg-green-600 text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.themes' ? 'bg-green-600 hover:bg-green-600 hover:text-gray-400 focus:bg-green-600 focus:text-gray-400' : 'hover:bg-green-700 hover:text-gray-400 focus:bg-green-700 focus:text-gray-400' }}">Themes</a>
+            <a href="{{ route('check.all.themes') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.themes' ? 'bg-green-600 hover:bg-green-600 hover:text-gray-400 focus:bg-green-600 focus:text-gray-400' : 'hover:bg-green-700 hover:text-gray-400 focus:bg-green-700 focus:text-gray-400' }}">Themes</a>
             <a href="{{ route('check.all.questions') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.questions' ? 'bg-gray-700 hover:bg-red-600 hover:text-gray-400 focus:bg-red-600 focus:text-gray-400' : 'hover:bg-red-700 hover:text-gray-400 focus:bg-red-700 focus:text-gray-400' }}">Questions</a>
-            <a href="{{ route('check.all.achievements') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.achievements' ? 'bg-gray-700 hover:bg-blue-600 hover:text-gray-400 focus:bg-blue-600 focus:text-gray-400' : 'hover:bg-blue-700 hover:text-gray-400 focus:bg-blue-700 focus:text-gray-400' }}">Achievements</a>
+            <a href="{{ route('check.all.achievements') }}" class="text-s text-white flex py-2 px-4 items-center justify-center bg-blue-600 rounded-lg {{ Request::route()->getName() == 'check.all.achievements' ? 'bg-blue-600 hover:bg-blue-600 hover:text-gray-400 focus:bg-blue-600 focus:text-gray-400' : 'hover:bg-blue-700 hover:text-gray-400 focus:bg-blue-700 focus:text-gray-400' }}">Achievements</a>
             <a href="{{ route('check.all.users') }}" class="text-s text-white flex py-2 px-4 items-center justify-center rounded-lg {{ Request::route()->getName() == 'check.all.users' ? 'bg-gray-700 hover:bg-yellow-600 hover:text-gray-400 focus:bg-yellow-600 focus:text-gray-400' : 'hover:bg-yellow-600 hover:text-gray-400 focus:bg-yellow-600 focus:text-gray-400' }}">Users</a>
         </nav>
     </div>
@@ -64,31 +64,31 @@
                 </div>
             @endif
             <br>
-                <form action="{{ route('admin.themes.updateTheme', ['theme' => $theme->themeId]) }}" method="POST" class="p-8 mt-6 lg:mt-0 border border-black border-3 rounded-lg bg-white">
+                <form action="{{ route('admin.achievements.updateAchievement',['achievement' => $achievement->achievementId]) }}" method="POST" class="p-8 mt-6 lg:mt-0 border border-black border-3 rounded-lg bg-white">
                     @csrf
                     @method('PUT')
 
                     <div class="md:flex mb-8">
                         <div class="md:w-1/3">
-                            <label class="block text-gray-600 font-bold md:text-left pt-3 md:mb-0 pr-4" for="theme_name">
-                                Theme Name
+                            <label class="block text-gray-600 font-bold md:text-left pt-3 md:mb-0 pr-4" for="achievement_name">
+                                Achievement Name
                             </label>
                         </div>
                         <div class="md:w-2/3">
-                            <input type="text" name="theme_name" id="theme_name" autocomplete="off" required
-                                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-10 pl-2 shadow-sm sm:text-sm border border-black border-3 rounded-lg" value="{{ $theme->themeName }}">
+                            <input type="text" name="achievement_name" id="achievement_name" autocomplete="off" required
+                                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-10 pl-2 shadow-sm sm:text-sm border border-black border-3 rounded-lg" value="{{ $achievement->achievementName }}">
                         </div>
                     </div>
 
                     <div class="md:flex mb-8">
                         <div class="md:w-1/3">
-                            <label class="block text-gray-600 font-bold md:text-left pt-3 md:mb-0 pr-4" for="theme_abreviation">
-                                Theme Abbreviation
+                            <label class="block text-gray-600 font-bold md:text-left pt-3 md:mb-0 pr-4" for="description">
+                                Description
                             </label>
                         </div>
                         <div class="md:w-2/3">
-                            <input type="text" name="theme_abreviation" id="theme_abreviation" autocomplete="off" required
-                                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-10 pl-2 shadow-sm sm:text-sm border border-black border-3 rounded-lg" value="{{ $theme->themeAbreviation }}">
+                            <input type="text" name="description" id="description" autocomplete="off" required
+                                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-10 pl-2 shadow-sm sm:text-sm border border-black border-3 rounded-lg" value="{{ $achievement->description }}">
                         </div>
                     </div>
 
@@ -96,7 +96,7 @@
                         <div class="md:w-1/3"></div>
                         <div class="md:w-2/3 flex justify-end">
                             <button class="shadow bg-green-600 hover:bg-green-100 focus:shadow-outline focus:outline-none text-white hover:text-red-500 font-bold py-2 px-4 rounded-lg" type="submit">
-                                Update Theme
+                                Update Achievement
                             </button>
                         </div>
                     </div>

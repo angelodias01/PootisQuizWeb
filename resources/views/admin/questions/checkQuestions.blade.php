@@ -57,41 +57,42 @@
         </div>
     </header>
     <main class="p-6 sm:p-10 space-y-6">
-        <div class="flex justify-between items-center mb-4">
-            <h2 class="text-2xl font-semibold">Questions</h2>
-            <a href="{{ route('admin.questions.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full block text-center">
-                Create
-            </a>
-        </div>
         <table class="border-collapse border border-gray-800">
             <thead>
             <tr>
-                <th class="border border-gray-800 px-4 py-2">ID</th>
-                <th class="border border-gray-800 px-4 py-2">Theme Name</th>
-                <th class="border border-gray-800 px-4 py-2">Question Text</th>
-                <th class="border border-gray-800 px-4 py-2">Correct Answer</th>
-                <th class="border border-gray-800 px-4 py-2">Wrong Answer 1</th>
-                <th class="border border-gray-800 px-4 py-2">Wrong Answer 2</th>
-                <th class="border border-gray-800 px-4 py-2">Wrong Answer 3</th>
-                <th class="border border-gray-800 px-4 py-2">Created at</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Theme Name</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Question Text</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Correct Answer</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Wrong Answer 1</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Wrong Answer 2</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Wrong Answer 3</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Created at</th>
+                <th class="border border-gray-800 px-4 py-2 border-4">Updated at</th>
+                <th class="border border-gray-800 px-4 py-2 border-4" colspan="2">
+                    <div class="flex justify-center">
+                        <a href="{{ route('admin.questions.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full block text-center">
+                            Create
+                        </a>
+                    </div>
+                </th>
             </tr>
             </thead>
             <tbody>
             @foreach($groupedQuestions as $themeName => $themes)
                 @foreach ($themes as $question)
                     <tr>
-                        <td class="border border-gray-800 px-4 py-2">{{ $question->questionsId }}</td>
-                        <td class="border border-gray-800 px-4 py-2">{{ $themeName }}</td>
-                        <td class="border border-gray-800 px-4 py-2">{{ $question->questionsText }}</td>
-                        <td class="border border-gray-800 px-4 py-2">{{ $question->correctAnswer }}</td>
-                        <td class="border border-gray-800 px-4 py-2">{{ $question->wrongAnswer1 }}</td>
-                        <td class="border border-gray-800 px-4 py-2">{{ $question->wrongAnswer2 }}</td>
-                        <td class="border border-gray-800 px-4 py-2">{{ $question->wrongAnswer3 }}</td>
-                        <td class="border border-gray-800 px-4 py-2">{{ $question->created_at }}</td>
-                        <td class="border border-gray-800 px-4 py-2">
-                            <a href="<?= route('check.all.questions') ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a>
+                        <td class="border border-gray-800 px-4 py-2 border-4">{{ $themeName }}</td>
+                        <td class="border border-gray-800 px-4 py-2 border-4">{{ $question->questionsText }}</td>
+                        <td class="border border-gray-800 px-4 py-2 border-4">{{ $question->correctAnswer }}</td>
+                        <td class="border border-gray-800 px-4 py-2 border-4">{{ $question->wrongAnswer1 }}</td>
+                        <td class="border border-gray-800 px-4 py-2 border-4">{{ $question->wrongAnswer2 }}</td>
+                        <td class="border border-gray-800 px-4 py-2 border-4">{{ $question->wrongAnswer3 }}</td>
+                        <td class="border border-gray-800 px-4 py-2 border-4">{{ $question->created_at }}</td>
+                        <td class="border border-gray-800 px-4 py-2 border-4">{{ $question->updated_at }}</td>
+                        <td class="border border-gray-800 px-4 py-2 border-4">
+                            <a href="{{ route('admin.questions.editQuestion', ['question' => $question->questionsId]) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</a>
                         </td>
-                        <td class="border border-gray-800 px-4 py-2">
+                        <td class="border border-gray-800 px-4 py-2 border-4">
                             <form id="deleteForm{{ $question->questionsId }}" action="{{ route('admin.questions.deleteQuestion', ['question' => $question->questionsId]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this question?');">
                                 @csrf
                                 @method('DELETE')
