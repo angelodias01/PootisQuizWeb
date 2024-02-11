@@ -67,4 +67,5 @@ class UserCurrencyController extends Controller
         return redirect()->route('admin.user_currencies.index')
             ->with('success', 'User currency deleted successfully!');
     }
+
 }

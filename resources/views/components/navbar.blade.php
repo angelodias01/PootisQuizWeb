@@ -1,10 +1,11 @@
+
 <div class="flex flex-wrap place-items-top">
 
     <!-- navbar -->
-    <nav class="flex justify-between bg-gray-900 text-white w-screen">
+    <nav class="flex justify-between bg-purple-400 text-white w-screen h-20">
         <div class="px-5 xl:px-12 py-6 flex w-full items-center">
-            <a class="text-3xl font-bold font-heading" href="#">
-                <img class="h-14 ml-12" src="LogoPootis.svg" alt="logo">
+            <a class="text-3xl font-bold font-heading" >
+                <img class="w-20 md:w-20" src="pootisquiz.svg" alt="logo"> <!-- Adjust the width here -->
             </a>
             <!-- Nav Links -->
             <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
@@ -15,6 +16,7 @@
             </ul>
         </div>
     </nav>
+
 </div>
 
 <!-- Responsive navbar -->
