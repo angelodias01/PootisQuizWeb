@@ -40,6 +40,9 @@ Route::get('/admin', function () {
     return view('admin.admin-dashboard');
 })->name('admin');
 
+Route::get('/admin/login', [UsersController::class, 'showLoginForm'])->name('admin.loginform');
+Route::post('/admin/login', [UsersController::class, 'login'])->name('admin.login.submit');
+
 // deletes
 Route::delete('/admin/questions/{question}', [QuestionsController::class, 'deleteQuestion'])->name('admin.questions.delete');
 Route::delete('/admin/users/{user}', [UsersController::class, 'deleteUser'])->name('admin.users.deleteUser');
