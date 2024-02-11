@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class ThemesController extends Controller
 {
+    public function index()
+    {
+        $themes = Themes::all();
+        return response()->json($themes);
+    }
     public function checkAllThemes()
     {
         $themes = Themes::orderBy('themeName')->get();
@@ -65,4 +70,5 @@ class ThemesController extends Controller
 
         return redirect()->route('check.all.themes')->with('success', 'Theme updated successfully!');
     }
+
 }
