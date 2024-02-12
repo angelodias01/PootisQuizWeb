@@ -50,7 +50,6 @@ class ThemesController extends Controller
         $theme->themeName = $validatedData['theme_name'];
         $theme->themeAbreviation = $validatedData['theme_abreviation'];
         $theme->updated_at = null;
-        dd($request->all());
         $theme->save();
 
         return redirect()->route('check.all.themes')->with('success', 'Theme created successfully!');
