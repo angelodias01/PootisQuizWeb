@@ -80,7 +80,7 @@
                 <td class="border border-gray-800 px-4 py-2 border-4"><?= $achievement->created_at ?></td>
                 <td class="border border-gray-800 px-4 py-2 border-4"><?= $achievement->updated_at ?></td>
                 <td class="border border-gray-800 px-4 py-2 border-4">
-                    <a href="{{ route('admin.achievements.editAchievement', ['achievement' => $achievement->achievementId]) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit Achievements</a>
+                    <a href="{{ route('admin.achievements.editAchievement', ['achievement' => $achievement->achievementId]) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full inline-block text-center">Edit Achievements</a>
                 </td>
                 <td class="border border-gray-800 px-4 py-2 border-4">
                     <form id="deleteForm<?= $achievement->achievementId ?>" action="{{ route('admin.achievements.delete', ['achievement' => $achievement->achievementId]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this achievement?');">
