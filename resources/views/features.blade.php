@@ -44,9 +44,9 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Card 1 -->
-        <div class="card bg-white p-6 rounded-lg shadow-md" onmousemove="handleMouseMove(this, event)"
+        <div class="card bg-white p-6 rounded-lg shadow-md border border-black border-4 rounded-lg shadow" onmousemove="handleMouseMove(this, event)"
              onmouseleave="handleMouseLeave(this)">
-            <img src="https://via.placeholder.com/400x300" alt="Feature 1"
+            <img src="{{ asset('variety.jpg') }}" alt="Feature 1"
                  class="w-full h-48 object-cover mb-4 rounded transition-transform duration-300 ease-in-out">
             <h3 class="text-xl font-semibold mb-2 text-center">Wide range of quizzes</h3>
             <p class="text-gray-600 text-center">At Pootis Quiz, you can challenge yourself with tons of fun and different
@@ -54,9 +54,9 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="card bg-white p-6 rounded-lg shadow-md" onmousemove="handleMouseMove(this, event)"
+        <div class="card bg-white p-6 rounded-lg shadow-md border border-black border-4 rounded-lg shadow" onmousemove="handleMouseMove(this, event)"
              onmouseleave="handleMouseLeave(this)">
-            <img src="https://via.placeholder.com/400x300" alt="Feature 2"
+            <img src="{{ asset('account.jpg') }}" style="" alt="Feature 2"
                  class="w-full h-48 object-cover mb-4 rounded transition-transform duration-300 ease-in-out">
             <h3 class="text-xl font-semibold mb-2 text-center">Account based</h3>
             <p class="text-gray-600 text-center">To play Pootis Quiz, you will need and account. With this, you
@@ -64,19 +64,19 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="card bg-white p-6 rounded-lg shadow-md" onmousemove="handleMouseMove(this, event)"
+        <div class="card bg-white p-6 rounded-lg shadow-md border border-black border-4 rounded-lg shadow" onmousemove="handleMouseMove(this, event)"
              onmouseleave="handleMouseLeave(this)">
-            <img src="https://via.placeholder.com/400x300" alt="Feature 3"
-                 class="w-full h-48 object-cover mb-4 rounded transition-transform duration-300 ease-in-out">
+            <img src="{{ asset('achievements.png') }}" alt="Feature 3"
+                 class="w-full h-48 object-contain mb-4 rounded transition-transform duration-300 ease-in-out">
             <h3 class="text-xl font-semibold mb-2 text-center">Achievements and statistics</h3>
             <p class="text-gray-600 text-center">You can try to get challenging achievements or check how good you
                 are going in your profile!</p>
         </div>
 
         <!-- Card 4 -->
-        <div class="card bg-white p-6 rounded-lg shadow-md" onmousemove="handleMouseMove(this, event)"
+        <div class="card bg-white p-6 rounded-lg shadow-md border border-black border-4 rounded-lg shadow" onmousemove="handleMouseMove(this, event)"
              onmouseleave="handleMouseLeave(this)">
-            <img src="https://via.placeholder.com/400x300" alt="Feature 4"
+            <img src="{{ asset('portugal_uk.jpg') }}" width="400px" height="300px" alt="Feature 4"
                  class="w-full h-48 object-cover mb-4 rounded transition-transform duration-300 ease-in-out">
             <h3 class="text-xl font-semibold mb-2 text-center">Bilingual support</h3>
             <p class="text-gray-600 text-center">You can play in either english or portuguese. The choice is yours
@@ -84,9 +84,9 @@
         </div>
 
         <!-- Card 5 -->
-        <div class="card bg-white p-6 rounded-lg shadow-md" onmousemove="handleMouseMove(this, event)"
+        <div class="card bg-white p-6 rounded-lg shadow-md border border-black border-4 rounded-lg shadow" onmousemove="handleMouseMove(this, event)"
              onmouseleave="handleMouseLeave(this)">
-            <img src="https://via.placeholder.com/400x300" alt="Feature 5"
+            <img src="{{ asset('rewards.jpg') }}" style="scale: " alt="Feature 5"
                  class="w-full h-48 object-cover mb-4 rounded transition-transform duration-300 ease-in-out">
             <h3 class="text-xl font-semibold mb-2 text-center">Tons of rewards</h3>
             <p class="text-gray-600 text-center">Based on how good you are doing in a quiz, you will recieve pootis coins.
@@ -94,9 +94,9 @@
         </div>
 
         <!-- Card 6 -->
-        <div class="card bg-white p-6 rounded-lg shadow-md" onmousemove="handleMouseMove(this, event)"
+        <div class="card bg-white p-6 rounded-lg shadow-md border border-black border-4 rounded-lg shadow" onmousemove="handleMouseMove(this, event)"
              onmouseleave="handleMouseLeave(this)">
-            <img src="https://via.placeholder.com/400x300" alt="Feature 6"
+            <img src="{{ asset('history.jpg') }}" alt="Feature 6"
                  class="w-full h-48 object-cover mb-4 rounded transition-transform duration-300 ease-in-out">
             <h3 class="text-xl font-semibold mb-2 text-center">Match history</h3>
             <p class="text-gray-600 text-center">Pootis quiz allows you to check all your previous quizzes, with useful info,

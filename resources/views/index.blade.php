@@ -189,9 +189,14 @@
                 </a>
             </div>
         </div>
-        <div class="p-6 rounded-lg shadow-lg relative text-lg bg-white rounded-lg flex flex-col items-center justify-center space-x-4 border border-black border-4 rounded-lg " style="width: 100%;">
+        <div class="p-6 rounded-lg shadow-lg relative text-lg bg-white rounded-lg flex flex-col items-center justify-center space-x-4 border border-black border-4 rounded-lg" style="width: 100%;">
+            <h2 class="text-2xl font-semibold mb-2">Why Pootis Quiz?</h2>
+            <p class="text-sm mb-4">Because Heavy and TF2 are cool. Check it out:</p>
             <div class="video-container">
-                <iframe width="820" height="420" class="border border-4 rounded-lg" src="https://www.youtube.com/embed/fyVAEw3Zywg" frameborder="0" allowfullscreen></iframe>
+                <video width="620" height="420" class="border border-4 rounded-lg" controls muted preload="auto">
+                    <source src="{{ asset('PootisMovie.mp4') }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
     </section>
