@@ -22,3 +22,7 @@ Route::get('/itens/{id}', [ApiController::class, 'show']);
 Route::post('/itens', [ApiController::class, 'store']);
 Route::put('/itens/{id}', [ApiController::class, 'update']);
 Route::delete('/itens/{id}', [ApiController::class, 'destroy']);
+
+Route::get('/themes', [ApiController::class, 'getAllThemes']);
+Route::get('/questions', [ApiController::class, 'getAllQuestions']);
+Route::get('/achievements', [ApiController::class, 'getAllAchievements']);
