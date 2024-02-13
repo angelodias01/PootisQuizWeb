@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Achievements;
+use App\Models\Questions;
 use App\Models\Themes;
 use Illuminate\Http\Request;
 
 class AchievementsController extends Controller
 {
-
+    public function index()
+    {
+        $achievements = Achievements::all();
+        return response()->json($achievements);
+    }
     public function checkAllAchievements()
     {
         $achievements = Achievements::select('achievementId', 'achievementName', 'description', 'created_at','updated_at' )->get();
@@ -42,12 +47,6 @@ class AchievementsController extends Controller
         $achievement->save();
 
         return redirect()->route('check.all.achievements')->with('success', 'Achievement created successfully!');
-    }
-    // Shows an achievements list
-    public function index()
-    {
-        $achievements = Achievements::all();
-        return view('admin.achievements.index', compact('achievements'));
     }
 
     // Shows the form for a new achievement
