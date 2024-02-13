@@ -42,7 +42,7 @@ You can find the mobile app here: https://github.com/JustaStudent01/Quiz
 
 <h2># Programs used</h2>
 
-<p>GitHub, Android Studio, PHP Storm, SQL, ROOM database (SQLite), Adobe Ilustrator, Github Desktop</p>
+<p>GitHub, Android Studio, PHP Storm, MySQL, Adobe Ilustrator, Github Desktop</p>
 
 <h2># Roadmap</h2>
 
