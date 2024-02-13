@@ -1,66 +1,70 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<h1>INDEX</h1>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<h4> --> Introduction</h4>
+
+<h4> --> Our Goal</h4>
+
+<h4> --> Improvements</h4>
+
+<h4> --> Programs to Use</h4>
+
+<h4> --> Roadmap</h4>
+
+<h4> --> Terms of Use
+
+<h4> --> Contact Us</h4>
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+<h2># Introduction</h2>
+
+<p>Hello and thanks for reading this file! This file will show you everything we have in mind for this project about a quiz, and also some more extras!</p>
+
+![PootisQuiz Logo](https://github.com/angelodias01/PootisQuizWeb/blob/master/public/pootisquiz.svg)
+
+<h2># Our Goal</h2>
+
+<p>This project has as it's main goal to make a quiz on an android enviroment with the resource of "Android Studio" in order to test our users knowledge, make some fun tests, get little competitions within our userbase or just for them to have a little fun! In order to better achieve this, we are using the framework "Laravel" in order to have an introductory website about our app to our users, and to also make every CRUD operation in the reserved space for the admins, in the website. For this, we used JAVA for the mobile app, and HTML, CSS, JAVASCRIPT, PHP, BLADE and SQL for all our needs in the making of the website. With this (API), we were able to create a conection from the website into the mobile app!
+<br>
+ 
+<br>
+You can find the mobile app here: https://github.com/JustaStudent01/Quiz 
 </p>
 
-## About Laravel
+<h2># Improvements</h2>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p>This project is meant to be some sort of upgrade to the previous projects we have develoaped (first a quiz made on console using BlueJ, then the mobile app with a local database and with a small introductory website using Android Studio and VS code, and now a well made website with full conection to the app using Android Studio again and PHP Storm). Based on all that was achieved, we highly consider this shows an upgrade in our other projects.
+   <br>
+   The console app is available on another repository, if you want to check: https://github.com/JustaStudent01/QuizConsoleApp. With this new project, we hope to improved some features and even add some more, created a good interface for the app and website, have a better login/accounts system (with password encryptation, for example) and made the app more challenging and rewarding.</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<h2># Programs used</h2>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<p>GitHub, Android Studio, PHP Storm, SQL, ROOM database (SQLite), Adobe Ilustrator, Github Desktop</p>
 
-## Learning Laravel
+<h2># Roadmap</h2>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<p>Here are the order of the steps we are taking to develoap this application:</p>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+<p>1. Analyse the problem - the developers sad, searched and discussed what problems could rise and how to solve those problems.</p>
+<p>2. Order the tasks to do among the members and find the solution to the problem - prioritize tasks among team members based on skills and allocate solutions to identified issues</p>
+<p>3. Begin to solve the problem and add features - initiate problem-solving with a clear understanding of issues. Implement changes and introduce features to address challenges.</p>
+<p>4. Use the tools available in order to improve the task solving - utilize software tools, frameworks, and methodologies to enhance efficiency in task-solving processes.</p>
+<p>5. Implement a scalable architecture - adopt a structured architectural pattern, such as Model-View-ViewModel (MVVM), to enhance the organization of the application. This separation of concerns facilitates maintainability by isolating the user interface from the underlying business logic.</p>
+<p>6. Give some quality of life improvements to the project - address bugs, refine features, and add functionalities to enhance user experience and project quality.</p>
+<p>7. Test with users - gather feedback from users to evaluate usability, functionality, and overall user experience, ensuring the product meets expectations.</p>
+   
+<h2># Terms of Use </h2>
+   
+<p> We allow any user to try and have some fun with this project therefore we abide totally to fair use. 
+   <br>
+   However, we do NOT allow any plagiarism of our code, terms or any data inside this repository, however using this code as a way to better understand a problem you have, learn something new or assist in any matter you may have with your projects is totally and proudly allowed (we also need help sometimes!). Just do not copy our hard work! </p>
+      
+<h2># Contact us!</h2>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<p>From doubts to improvements, we are open to it all! Don't worry if we take long to respond, we might be coding or doing outside works in this project or totally related school projects (trust us ;D).</p>
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<p>24290@stu.ipbeja.pt / Ângelo Dias </p>
+<p>24288@stu.ipbeja.pt / Martim Dias </p>
